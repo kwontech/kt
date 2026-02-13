@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이원 텍 홈페이지</title>
+
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/company.css">
+    <link rel="stylesheet" href="./css/business.css">
+    <link rel="stylesheet" href="./css/achievements.css">
+    <link rel="stylesheet" href="./css/certification.css">
+    <link rel="stylesheet" href="./css/contact.css">
+
+    <link rel="stylesheet" href="./company.html">
+    <link rel="stylesheet" href="./business.html">
+    <link rel="stylesheet" href="./achievements.html">
+    <link rel="stylesheet" href="./certification.html">
+    <link rel="stylesheet" href="./contach.html">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="google-site-verification" content="1e9QCZiJOIeOCgviSecI2u1Qaxh9B46h9H0RgL5f9Bg" />
+    
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        loop: true, 
+        
+        // [수정] 이동 속도: 2초(2000) 정도가 가장 우아하고 부드럽습니다.
+        // 10000(10초)은 너무 느려서 멈춘 것처럼 보일 수 있어요!
+        speed: 2000, 
+
+        autoplay: {
+            // [수정] 대기 시간: 3초(3000) 정도 가만히 보여줍니다.
+            delay: 3000, 
+            disableOnInteraction: false,
+        },
+
+        // 옆으로 밀리는 slide 효과를 명시 (fade가 섞이지 않게)
+        effect: 'slide',
+
+        allowTouchMove: true, 
+        
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+    // 마우스 올리면 멈춤 기능 유지
+    const swiperContainer = document.querySelector('.mySwiper');
+    swiperContainer.addEventListener('mouseenter', () => swiper.autoplay.stop());
+    swiperContainer.addEventListener('mouseleave', () => swiper.autoplay.start());
+</script>
+
+</head>
+<body>
+    
+    <header>
+    <div class="container nav-container">
+       <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+        <nav>
+            <ul class="gnb">
+                <li class="menu-item">
+                    <a href="company.html">회사소개</a>
+                    <ul class="submenu">
+                        <li><a href="company.html?tab=1" >인사말</a></li>
+                        <li><a href="company.html?tab=2">회사개요</a></li>
+                        <li><a href="company.html?tab=3">연혁</a></li>
+                        <li><a href="company.html?tab=4">오시는 길</a></li>
+                        <li><a href="company.html?tab=5">ESG 경영</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="business.html">사업분야</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="certification.html">인증/특허</a>
+                    <ul class="submenu">
+                        <li><a href="certification.html?tab=1">인증현황</a></li>
+                        <li><a href="certification.html?tab=2">특허현황</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="achievements.html">주요실적</a>
+                    <ul class="submenu">
+                        <li><a href="achievements.html?tab=1">파트너사</a></li>
+                        <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contach.html">문의하기</a>
+                </li>
+                <li class="menu-item groupware-item">
+                    <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+    <section class="main-visual">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./main pase image/자동화여.jpg" alt="배경이미지1" class="slide-bg">
+                    <div class="mask"></div> <div class="text-box">
+                        <h2>자동화 제어 시스템의 선두주자</h2>
+                        <p>27년의 기술력으로 산업 자동화의 미래를 열어갑니다</p>
+                        
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./main pase image/최고의 기술력4.jpg" alt="배경이미지2" class="slide-bg">
+                    <div class="mask"></div><div class="text-box">
+                        <h2>마음을 잇는 기술</h2>
+                        <p>기술력과 신뢰로 고객과 함께 성장합니다</p>
+                    </div>
+                    <!-- 최고의 기술력, 최고의 신뢰 : 고객과 함께 성장하는 파트너가 되겠습니다 -->
+                </div>
+                <div class="swiper-slide">
+                    <img src="./main pase image/최고의 기술력3.jpg" alt="배경이미지3" class="slide-bg">
+                    <div class="mask"></div><div class="text-box">
+                        <h2>혁신적인 기술로 그리는 미래</h2>
+                        <p>글로벌 시장을 선도하는 스마트 팩토리 솔루션을 제공합니다</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <div class="gray-bg-wrapper">
+    <section class="quick-menu container">
+        
+        <a href="company.html" class="quick-item">
+            <div class="icon-circle"><i class="fa-solid fa-building"></i></div>
+            <div class="text-area">
+                <h3>회사소개</h3>
+                <p>27년 역사 자동화 전문</p>
+            </div>
+        </a>
+
+        <a href="business.html" class="quick-item">
+            <div class="icon-circle"><i class="fa-solid fa-gear"></i></div>
+            <div class="text-area">
+                <h3>사업분야</h3>
+                <p>시스템 및 공정 제어</p>
+            </div>
+        </a>
+
+        <a href="certification.html" class="quick-item">
+            <div class="icon-circle"><i class="fa-solid fa-medal"></i></div>
+            <div class="text-area">
+                <h3>인증/특허</h3>
+                <p>ISO 및 벤처 인증</p>
+            </div>
+        </a>
+
+        <a href="achievements.html" class="quick-item">
+            <div class="icon-circle"><i class="fa-solid fa-microchip"></i></div>
+            <div class="text-area">
+                <h3>주요실적</h3>
+                <p>반도체·디스플레이 구축 실적</p>
+            </div>
+        </a>
+
+        <a href="contach.html" class="quick-item">
+            <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
+            <div class="text-area">
+                <h3>문의하기</h3>
+                <p>견적 및 기술 상담</p>
+            </div>
+        </a>
+
+    </section>
+</div>
+
+    <section class="intro-section">
+        <div class="container">
+            <h2>KWON TECH</h2>
+            <h3 class="blue-text">케이원텍</h3>
+            <p class="description">
+                1998년 설립 이래, 케이원텍은 <strong>자동화 판넬 설계, 제작 및 설치</strong> 분야에서 축적된 기술력과 노하우를 바탕으로<br>
+                대한민국 산업 자동화의 발전에 기여하고 있습니다.
+            </p>
+            <p class="partner-text">
+                LG전자, SK실트론 등 <strong>국내 최고의 기업들과 파트너십</strong>을 유지하며, 끊임없는 기술 혁신으로<br>
+                고객의 신뢰에 보답하고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <section class="partner-section">
+    <div class="container">
+        <h3 class="section-title">함께하는 파트너사</h3>
+        <div class="partner-grid">
+            <div class="partner-logo"><img src="./image/LG display.png" alt="LG Display"></div>
+            <div class="partner-logo"><img src="./image/LG 전자.png" alt="LG전자"></div>
+            <div class="partner-logo"><img src="./image/sk siltron.png" alt="SK실트론"></div>
+            <div class="partner-logo eqc-hover"><img src="./image/이큐셀.png" alt="이큐셀"></div>
+            <div class="partner-logo"><img src="./image/hana blue.png" alt="HANA MATERIALS"></div>
+            <div class="partner-logo"><img src="./image/현빈.png" alt="현빈테크"></div>
+            <div class="partner-logo"><img src="./image/vns2.png" alt="VNS"></div>
+            <div class="partner-logo"><img src="./image/저스탬.png" alt="Justem"></div>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>케이원 텍</h4>
+                <p>케이원 텍은 1998년 설립 이래 자동화 제어 시스템 분야의 선두 기업으로 성장해 왔습니다.</p>
+            </div>
+            <div class="footer-contact">
+                <p>연락처: 054-465-5441</p>
+                <p>이메일: kwontech01@kwontech.com</p>
+                <p>본사: 경상북도 구미시 5공단 7로 61</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © KWONTECH Co., Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+            },
+        });
+    </script>
+</body>
+</html>
+

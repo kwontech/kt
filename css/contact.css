@@ -1,0 +1,85 @@
+
+.ct-main-container {
+    padding: 60px 0 100px 0;
+    background-color: #fcfcfc;
+}
+
+.ct-page-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.ct-form-card {
+    background: #fff;
+    padding: 28px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.ct-card-title { font-size: 1.4rem; margin-bottom: 25px; color: #111; }
+
+.ct-input-group { margin-bottom: 18px; }
+.ct-input-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: #333; }
+.ct-input-group input, .ct-input-group textarea {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem;
+}
+.ct-input-group textarea { height: 120px; resize: none; }
+
+.ct-form-notice { font-size: 0.85rem; color: #777; margin: 20px 0; line-height: 1.4; }
+.ct-submit-btn {
+    width: 100%; padding: 15px; background: #1d3658; color: #fff; border: none; 
+    border-radius: 4px; font-weight: 600; font-size: 17px; cursor: pointer; 
+}
+
+.ct-info-column { display: flex; flex-direction: column; gap: 15px; }
+
+.ct-info-card {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+}
+
+.ct-info-title { font-size: 1.1rem; margin-bottom: 20px; color: #111; }
+
+
+.ct-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+
+.ct-icon-box {
+    width: 42px; height: 42px; background: #eff3f9; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #3b82f6; flex-shrink: 0; font-size: 1.1rem;
+}
+
+.ct-text-box strong { display: block; font-size: 0.95rem; color: #333; margin-bottom: 4px; }
+.ct-text-box p { font-size: 0.95rem; color: #666; line-height: 1.4; }
+
+.ct-map-box {
+    width: 100%;
+    height: 285px; 
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.ct-suwon-card {
+    display: flex;
+    align-items: center; 
+    min-height: 100px;
+}
+.ct-suwon-card .ct-info-item { margin-bottom: 0; }
+
+.ct-map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}

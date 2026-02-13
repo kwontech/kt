@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이원 텍 | 사업분야</title>
+    
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/company.css">
+    <link rel="stylesheet" href="./css/business.css">
+    <link rel="stylesheet" href="./css/achievements.css">
+    <link rel="stylesheet" href="./css/certification.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        
+    </script>
+</head>
+<body>
+    <header>
+    <div class="container nav-container">
+       <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+        <nav>
+            <ul class="gnb">
+                <li class="menu-item">
+                    <a href="company.html">회사소개</a>
+                    <ul class="submenu">
+                        <li><a href="company.html?tab=1" >인사말</a></li>
+                        <li><a href="company.html?tab=2">회사개요</a></li>
+                        <li><a href="company.html?tab=3">연혁</a></li>
+                        <li><a href="company.html?tab=4">오시는 길</a></li>
+                        <li><a href="company.html?tab=5">ESG 경영</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="business.html">사업분야</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="certification.html">인증/특허</a>
+                    <ul class="submenu">
+                        <li><a href="certification.html?tab=1">인증현황</a></li>
+                        <li><a href="certification.html?tab=2">특허현황</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="achievements.html">주요실적</a>
+                    <ul class="submenu">
+                        <li><a href="achievements.html?tab=1">파트너사</a></li>
+                        <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contach.html">문의하기</a>
+                </li>
+                <li class="menu-item groupware-item">
+                    <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <section class="sub-visual">
+        <div class="container">
+            <h2>사업분야</h2>
+            <p>첨단 자동화 제어 기술로 산업의 미래를 열어갑니다</p>
+        </div>
+    </section>
+
+    <main class="container" style="padding: 100px 0 150px;">
+        <div class="business-grid">
+            <div class="biz-card" onclick="openModal('grower')">
+                <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+                <div class="biz-content">
+                    <h3>Grower 장비 제어부</h3>
+                    <p class="biz-sub-blue">반도체 / 태양광 폴리실리콘 제조</p>
+                    <p class="biz-desc">반도체 및 태양광 제조 핵심 장비의 전장제어부 설계 및 제작을 전문으로 합니다.</p>
+                    <hr class="card-divider">
+                    <div class="biz-tags">
+                        <span class="tag-box">PLC</span>
+                        <span class="tag-box">HMI</span>
+                        <span class="tag-box">SCADA</span></div>
+                </div>
+            </div>
+
+            <div class="biz-card" onclick="openModal('exposure')">
+                <div class="icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <div class="biz-content">
+                    <h3>노광기 제어부</h3>
+                    <p class="biz-sub-blue">LCD 및 디지털 노광기</p>
+                    <p class="biz-desc">고정밀 Align 및 위치 제어 기술을 바탕으로 노광 공정 시스템을 구축합니다.</p>
+                    <hr class="card-divider">
+                    <div class="biz-tags">
+                        <span class="tag-box">Motion</span>
+                        <span class="tag-box">Vision</span>
+                        <span class="tag-box">PLC</span></div>
+                </div>
+            </div>
+
+            <div class="biz-card" onclick="openModal('pecvd')">
+                <div class="icon-box"><i class="fa-solid fa-industry"></i></div>
+                <div class="biz-content">
+                    <h3>PECVD/ALD 장비 제어부</h3>
+                    <p class="biz-sub-blue">태양광 솔라 모듈 제조</p>
+                    <p class="biz-desc">에너지 산업의 핵심인 솔라 모듈 제조 장비의 통합 제어 시스템을 제공합니다.</p>
+                    <hr class="card-divider">
+                    <div class="biz-tags">
+                        <span class="tag-box">Process</span>
+                        <span class="tag-box">Safety</span></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+   <div id="bizModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header-top">
+            <div class="header-inner">
+                <div class="modal-icon-square" id="modalIconBox">
+                    <i id="modalIcon" class="fa-solid"></i>
+                </div>
+                <div class="modal-title-group">
+                    <h2 id="modalTitle">장비명</h2>
+                    <p id="modalSubTitle" class="biz-sub-blue">서브 타이틀</p>
+                </div>
+            </div>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+        </div>
+
+        <div class="modal-split-body">
+            <div class="modal-gallery-side" id="modalGallery">
+                </div>
+
+            <div class="modal-info-side">
+                <div class="info-scroll-area">
+                    <section class="info-section">
+                        <h4><i class="fa-solid fa-circle-info"></i> 장비개요</h4>
+                        <p id="modalMainDesc" class="desc-text"></p>
+                    </section>
+
+                    <section class="info-section">
+                        <h4><i class="fa-solid fa-list-check"></i> 제작범위</h4>
+                        <ul class="modal-list" id="modalScope"></ul>
+                    </section>
+
+                    <section class="info-section no-line">
+                        <h4><i class="fa-solid fa-layer-group"></i> 주요기술</h4>
+                        <div id="modalTech" class="tech-list"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>케이원 텍</h4>
+                <p>케이원 텍은 1998년 설립 이래 자동화 제어 시스템 분야의 선두 기업으로 성장해 왔습니다.</p>
+            </div>
+            <div class="footer-contact">
+                <p>연락처: 054-465-5441</p>
+                <p>이메일: kwontech01@kwontech.com</p>
+                <p>본사: 경상북도 구미시 5공단 7로 61</p>
+            </div>
+        </div>
+        <div class="copyright">© KWONTECH Co., Ltd. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+        const bizData = {
+            grower: /* desc : 장비개요 , scope : 제작범위 , tech : 주요기술 */
+            {
+                title: "Grower 장비 제어부",
+                sub: "반도체 / 태양광 폴리실리콘 제조",
+                icon: "fa-microchip",
+                desc: [ "본 장비는 반도체 및 태양광 에너지 부분의 중요부인 폴리실리콘을 이용한" ,
+                        " 잉곳 제조 공정을 담당하는 장비이며, 전장부 설계 및 하드웨어 구성,",
+                        "PLC 프로그램 설계 제어를 한다."
+                     ],
+                scope: [
+                            "전장부 설계, PLC Program, Touch 작화",
+                            "전장 Panel 설계 제작, 기구부 전장배선",
+                        ],
+                tech: [
+                            "Grower 전장부 Hardware 설계 및 제작",
+                            "각 종 계기와의 통신제어(RS-232C, 422, 485...)",
+                            "서보모터를 이용한 속도 및 PID 제어 프로그램",
+                            "전장부 제어 Touch 작화 프로그램(Pro face)"
+                        ],
+                /*tech: ["PLC", "HMI", "SCADA", "Motion Control"],*/
+                images: ["./business.image/사업분야 장비1-01.png"]
+            },
+            exposure: 
+            {
+                title: "노광기 제어부",
+                sub: "LCD P8, P9 CF 및 디지털 노광기",
+                icon: "fa-bolt-lightning",
+                desc: ["본 장비는 LG 디스플레이의 노광 공정을 담당하는 장비로 전장부 설계 및",
+                        "하드웨어구성, PRE_Align 및 MASK LIBRARY, ",
+                       " 조명계 PLC 프로그램 설계 제어를 한다."
+                        ],
+                scope: ["전장부 설계, PLC Program, 전장 Panel 설계 제작, 기구부 전장배선"],
+                tech: ["노광기 전장부 Hardware 설계 및 제작",
+                       "노광기 투입전 PRC-Align 장치 전장부 설계 및 제어",
+                       "엣지센서를 이용한 Align Data 산출 프로그램 (RS232)",
+                       "서보모터를 이용한 Align 위치제어 프로그램",
+                       "전장부 제어 Touch 작화 프로그램(미쓰비시GOT)",
+                       "GLASS LOAD/UNLOAD Robot 제어프로그램(산교로봇)",
+                       "MASK LIBRARY 전장부 하드웨어 설계 및 제작",
+                       "MASK 센터링 장치 제어 프로그램",
+                       "MASK ID READ 장치 프로그램 (RS232)",
+                       "LIBRARY 제어 프로그램",
+                       "MASK LOAD/UNLOAD Robot 프로그램 (야스카와)",
+                       "상위 장치와 LINK 제어 (각종 통신제어)",
+                       "25KW의 수은등 점등 및 전력 제어 (RS232)"
+                        ],
+                images: ["./business.image/사업분야 장비1-02.png"]
+            },
+            pecvd:
+            {
+                title: "PECVD, ALD, OC1 장비 제어부",
+                sub: "태양광 솔라 모듈 제조",
+                icon: "fa-industry",
+                desc: ["본 장비는 태양광 에너지 부분의 중요부인 빛을 전기에너지로 변환하는,",
+                       " 솔라 모듈 제조 공정을 담당하는 장비인 PECVD & ALD 공정 장비의 ",
+                       " 전장부 설계 및 하드웨어 구성, PLC 프로그램 설계 제어를 한다."],
+                scope: ["전장부 설계, PLC Program, Touch",
+                       "전장 Panel 설계 제작, 기구부 전장배선"
+                        ],
+                tech: ["PLC Software, 전장 Hardware 설계 및 제작",
+                       "각 종 계기와의 통신제어 (RS-232C, 422, 485...)",
+                       "서보모터를 이용한 속도, Temp 및 PID 제어 프로그램",
+                       "진공 물류 및 온도, 공정, HMI 관련 제어 프로그램"
+                        ],
+                images: ["./business.image/사업분야 장비1-03.png"]
+            },
+        };
+
+function openModal(id) {
+    const data = bizData[id];
+    if(!data) return;
+
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalSubTitle').innerText = data.sub;
+    document.getElementById('modalMainDesc').innerHTML = data.desc.join('<br>'); 
+    document.getElementById('modalIcon').className = `fa-solid ${data.icon}`;
+    
+const gallery = document.getElementById('modalGallery');
+
+// 레이아웃을 방해하는 다른 클래스(grid 등)를 모두 지우고 위 CSS만 먹도록 설정
+gallery.className = "modal-gallery-side"; 
+
+gallery.innerHTML = data.images.map(src => `
+    <div class="image-box">
+        <img src="${src}" alt="장비이미지">
+    </div>
+`).join('');
+
+    document.getElementById('modalScope').innerHTML = data.scope.map(s => `<li>${s}</li>`).join('');
+    document.getElementById('modalTech').innerHTML = data.tech.map(t => `<li>${t}</li>`).join('');
+
+    document.getElementById('bizModal').style.display = 'block';
+}
+
+        // 1. 모달 닫기 함수
+function closeModal() {
+    const modal = document.getElementById('bizModal');
+    modal.style.display = 'none';
+    
+    // 팁: 창을 닫을 때 스크롤을 맨 위로 초기화하면 다음번에 열 때 깨끗합니다.
+    document.querySelector('.modal-info-side').scrollTop = 0;
+}
+
+// 2. 창 바깥쪽(검은 배경) 클릭 시 닫기 기능 (추가 권장)
+window.onclick = function(event) {
+    const modal = document.getElementById('bizModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+
+
+.tab-container-round {
+    display: flex;
+    background: #f1f5f9;
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 3. 탭 버튼 기본 스타일 */
+.tab-btn {
+    padding: 12px 45px; /* 가로 길이를 충분히 확보 */
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 4. 마우스 올렸을 때 */
+.tab-btn:hover {
+    color: #1a375f;
+}
+
+/* 5. 활성화된 버튼 (흰색 알약 모양) */
+.tab-btn.active {
+    background: #ffffff !important; /* 배경 흰색 */
+    color: #1a375f !important;    /* 텍스트 남색 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; /* 튀어나온 듯한 그림자 */
+}
+
+
+/* 탭 버튼 스타일 (알약 모양) */
+.tab-container-round .tab-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+
+.tab-container-round .tab-btn.active {
+    background: #fff;
+    color: #1a375f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tab-outer-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+/* 2. 탭 컨테이너 (회색 둥근 박스) */
+.tab-container-round {
+    display: flex;
+    background: #f1f5f9; /* 연한 회색 배경 */
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); /* 안쪽으로 살짝 들어간 느낌 */
+}
+
+.tab-btn {
+    padding: 12px 45px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: #fff;
+    color: #1a375f;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+
+
+.greeting-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.greeting-text {
+    flex: 1;
+}
+
+.greeting-text h2 {
+    font-size: 32px;
+    color: #1a375f;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.greeting-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.greeting-image {
+    flex: 1;
+    background: #1a375f;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 4px;
+}
+
+.overview-card {
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.overview-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.overview-header h3 {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.overview-header h3 span {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.overview-header span {
+    display: block;
+    font-size: 16px;
+    color: #999;
+    font-weight: 400;
+}
+
+.overview-icon 
+{
+    width: 65px;
+    height: 65px;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+}
+
+.overview-icon i {
+    font-size: 24px;
+    color: #1a375f;
+}
+
+.overview-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.overview-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.overview-table th {
+    width: 150px;
+    text-align: left;
+    padding: 20px 0;
+    color: #1a375f;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.overview-table td {
+    padding: 20px 0;
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 40px 0;
+}
+
+.history-container::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.history-group {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.history-dot {
+    position: absolute;
+    left: 26px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1a375f;
+    z-index: 2;
+}
+
+.history-year-label {
+    margin-left: 60px;
+    display: inline-block;
+    padding: 5px 20px;
+    background: #f1f5f9;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #1a375f;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.year-mini {
+    font-weight: 700;
+    color: #1a375f;
+    min-width: 50px;
+    font-size: 16px;
+}
+
+
+.comp-history-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+    transition: transform 0.2s ease;
+}
+
+.comp-history-item {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.comp-history-item:hover {
+    transform: translateY(-3px);
+}
+
+.comp-history-item .year-mini {
+    font-weight: 700;
+    color: #1a375f;
+    min-width: 50px;
+    font-size: 16px;
+}
+
+.comp-history-item .content-mini {
+    color: #444;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.comp-history-item .content-mini span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .comp-history-item {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+    }
+}
+
+.location-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+.location-card {
+    background: #fff;
+    flex: 1;
+    min-width: 450px;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.location-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+
+/* 지도 영역 (하늘색 박스 대체) */
+.map-area {
+    width: 100%;
+    background: #eef6ff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.location-info-bottom {
+    font-size: 15px;
+    color: #555;
+}
+
+.location-info-bottom strong {
+    color: #1a375f;
+    margin-right: 5px;
+}
+
+.esg-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background: none;
+    color: #333;
+}
+
+.esg-card-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.esg-card {
+    flex: 1;
+    background: #fff;
+    padding: 40px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+.card-icon { font-size: 45px; margin-bottom: 20px; color: #7cb342; } 
+.esg-card:nth-child(2) .card-icon { color: #ffa000; } 
+.esg-card:nth-child(3) .card-icon { color: #546e7a; } 
+
+
+.eng-label { display: block; color: #2196f3; font-weight: 800; font-size: 13px; letter-spacing: 1px; margin-bottom: 10px; }
+.esg-card h3 { font-size: 22px; margin-bottom: 25px; color: #000; }
+
+.esg-list { text-align: left; padding: 0; list-style: none; margin: 0; }
+.esg-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 12px;
+    font-size: 14.5px;
+    color: #555;
+    line-height: 1.4;
+}
+.esg-list li::before {
+    content: "•";
+    color: #2196f3;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .esg-card-section { flex-direction: column; }
+}
+
+.whistleblower-section { margin-bottom: 40px; }
+.wb-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.wb-header { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.wb-header i { font-size: 24px; color: #444; }
+.wb-header h3 { font-size: 20px; margin: 0; }
+.wb-header span { color: #888; font-size: 14px; }
+
+.wb-content { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.wb-item strong { display: block; font-size: 15px; color: #333; margin-bottom: 5px; }
+.wb-item p { margin: 0; font-size: 14px; color: #666; line-height: 1.5; }
+
+
+
+/* 하단 배너 */
+.esg-bottom-banner {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+.esg-bottom-banner strong { color: #005aab; }
+
+
+/* 모바일 대응 (화면이 작아질 때 버튼 크기 조절) */
+@media (max-width: 768px) {
+    .tab-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .wb-content { grid-template-columns: 1fr; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

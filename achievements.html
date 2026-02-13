@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/company.css">
+    <link rel="stylesheet" href="./css/business.css">
+    <link rel="stylesheet" href="./css/achievements.css">
+    <link rel="stylesheet" href="./css/certification.css">
+    <link rel="stylesheet" href="./css/contact.css">
+
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+// 1. 탭 전환 기능
+function openTab(evt, tabName) {
+    const contents = document.getElementsByClassName("tab-content");
+    for (let content of contents) {
+        content.style.display = "none"; 
+        content.classList.remove("active");
+    }
+
+    const btns = document.getElementsByClassName("tab-btn");
+    for (let btn of btns) {
+        btn.classList.remove("active");
+    }
+
+    const targetTab = document.getElementById(tabName);
+    if (targetTab) {
+        targetTab.style.display = "block";
+        targetTab.classList.add("active");
+    }
+    
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
+    }
+}
+
+// 2. URL 파라미터 연동
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    const tabBtns = document.getElementsByClassName("tab-btn");
+
+    if (tabParam && tabBtns[tabParam - 1]) {
+        tabBtns[tabParam - 1].click();
+    } else {
+        if (tabBtns[0]) tabBtns[0].click();
+    }
+});
+
+// 3. 프로젝트 이력 필터링 기능 (더 확실한 방식으로 수정)
+function filterProject(category) {
+    // 버튼 active 상태 변경
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.classList.remove('active');
+        // 클릭된 버튼의 onclick 속성을 체크해서 active 추가
+        if(btn.getAttribute('onclick').includes("'" + category + "'")) {
+            btn.classList.add('active');
+        }
+    });
+
+    // 리스트 필터링
+    const items = document.querySelectorAll('.history-item');
+    items.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+</script>
+</head>
+<body>
+    <header>
+    <div class="container nav-container">
+       <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+        <nav>
+            <ul class="gnb">
+                <li class="menu-item">
+                    <a href="company.html">회사소개</a>
+                    <ul class="submenu">
+                        <li><a href="company.html?tab=1" >인사말</a></li>
+                        <li><a href="company.html?tab=2">회사개요</a></li>
+                        <li><a href="company.html?tab=3">연혁</a></li>
+                        <li><a href="company.html?tab=4">오시는 길</a></li>
+                        <li><a href="company.html?tab=5">ESG 경영</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="business.html">사업분야</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="certification.html">인증/특허</a>
+                    <ul class="submenu">
+                        <li><a href="certification.html?tab=1">인증현황</a></li>
+                        <li><a href="certification.html?tab=2">특허현황</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="achievements.html">주요실적</a>
+                    <ul class="submenu">
+                        <li><a href="achievements.html?tab=1">파트너사</a></li>
+                        <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contach.html">문의하기</a>
+                </li>
+                <li class="menu-item groupware-item">
+                    <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <section class="sub-visual">
+        <div class="container">
+            <h2>주요실적</h2>
+            <p>국내 최고의 기업들과 함께 성장해 왔습니다</p>
+        </div>
+    </section>
+
+
+
+    <main class="container" style="padding: 50px 0 100px 0;">
+    <div class="tab-outer-wrapper">
+        <div class="tab-container-round">
+            <button class="tab-btn active" onclick="openTab(event, 'partner-list')">파트너사</button>
+            <button class="tab-btn" onclick="openTab(event, 'project-history')">프로젝트 이력</button>
+        </div>
+    </div>
+
+<div id="partner-list" class="tab-content active">
+    <div class="partner-intro-text">
+        <p>케이원 텍은 국내 대표 기업들과 긴밀한 파트너십을 유지하며 함께 성장하고 있습니다.</p>
+    </div>
+    
+    <div class="achieve-grid">
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/LG display.png" alt="LG Display">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/LG 전자.png" alt="LG전자">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/sk siltron.png" alt="SK 실트론">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box eqc-bg">
+                <img src="./image/이큐셀.png" alt="이큐셀">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/hana blue.png" alt="HANA MATERIALS">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/현빈.png" alt="현빈테크(주)">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/vns2.png" alt="VNS">
+            </div>
+        </div>
+
+        <div class="achieve-card">
+            <div class="achieve-logo-box">
+                <img src="./image/저스탬.png" alt="Justem">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="project-history" class="tab-content">
+    <div class="history-filter">
+        <button class="filter-btn active" onclick="filterProject('all')">전체</button>
+        <button class="filter-btn" onclick="filterProject('control')">전장제어부</button>
+        <button class="filter-btn" onclick="filterProject('vision')">화상처리</button>
+        <button class="filter-btn" onclick="filterProject('system')">계측기</button>
+    </div>
+
+    <div class="history-list"> 
+        <div class="history-item" data-category="vision">
+            <div class="history-year">2024~</div>
+            <div class="history-content">
+                <strong>SK Siltron 구미 MeltGap Vision System</strong>
+                <span>SK 실트론</span>
+            </div>
+            <div class="history-tag">화상처리 SYSTEM</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2022~현재</div>
+            <div class="history-content">
+                <strong>SK 실트론 Grower Project 참여중</strong>
+                <span>SK 실트론</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+        
+        <div class="history-item" data-category="control">
+            <div class="history-year">2022~현재</div>
+            <div class="history-content">
+                <strong>한화에어로스페이스장비 Project 참여중</strong>
+                <span>VNS</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2019~2022</div>
+            <div class="history-content">
+                <strong>현빈테크(주) Hana Grower 장비 제어부 참여</strong>
+                <span>현빈테크(주)</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2019~2022</div>
+            <div class="history-content">
+                <strong>CF 노광기,PTN 검사기 CA&P10, H Project 참여</strong>
+                <span>LG Display</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG 실트론 12"Grower, 8"Solar Grower,사파이어 Grower 장비 제어부 제작</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG전자 생산기술원 LGD P98 Project 참여. 노광기, PTN 검사기 제어부</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG전자 생산기술원 LG 실트론 이천공장 사파이어 Grower 제어부</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG생산 기술원 광저우 CF 노광기, PTN 검사기 전장 제어부 </strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG전자 솔라 PECVD, QB, ALD 전장 제어부</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 MR 장비 전장 제어부(W-Project)</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2011~2018</div>
+            <div class="history-content">
+                <strong>LG전자 솔라 Vertical PECVD 전장 제어부</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="vision">
+            <div class="history-year">2012~2016</div>
+            <div class="history-content">
+                <strong>LG Siltorn 구미 MeltGap Vision System</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">화상처리 SYSTEM</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2008~2010</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 LGD 파주 P8 Project 참여 노광기 & Inkjet 장비 관련 제어</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2008~2010</div>
+            <div class="history-content">
+                <strong>LG전자 생산성 연구원 LG이노텍 LED SPUTTER 장비, Evaporator, 탑패임검사기 제어</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2008~2010</div>
+            <div class="history-content">
+                <strong>LG전자 생산성 연구원 LGD 파주 P8E P98 Project 참여. <br>
+                        노광기, 패턴 검사, Inkjet 장비 외 관련 제어 </strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="vision">
+            <div class="history-year">2007~2009</div>
+            <div class="history-content">
+                <strong>LG Siltorn 구미 MeltGap Vision System</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">화상처리 SYSTEM</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2005~2006</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 LG전자(주) A3, R3 Project 참여 노광기 제어</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2005~2006</div>
+            <div class="history-content">
+                <strong>LG PHILIPS Displays(주) 전자관 설비 관련 제어 : LPDK, LPDI, LPDSG</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2005-2006</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 LPD 파주 P7 Project참여 노광기 관련 제어</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2005~2006</div>
+            <div class="history-content">
+                <strong>LPD Bulb Z Point측정 System 제작</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2005~2006</div>
+            <div class="history-content">
+                <strong>LPD Mask 곡률 측정 System 제작</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="vision">
+            <div class="history-year">1998~2006</div>
+            <div class="history-content">
+                <strong>LPD 구미, 창원, 영국, 중국, 인도네시아공장 전자총 자동 정렬 System</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">화상처리 SYSTEM</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2004~2005</div>
+            <div class="history-content">
+                <strong>LPDK LPD Super slim Project 참여</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2003-2005</div>
+            <div class="history-content">
+                <strong>LPD Bulb Coatinf 표면 저항 측정기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="vision">
+            <div class="history-year">2001~2005</div>
+            <div class="history-content">
+                <strong>LG PHILIPS Displays(주) 구미공장 Mount G3 각도 측정용 방향 검사기 개조</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">화상처리 SYSTEM</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2001-2004</div>
+            <div class="history-content">
+                <strong>LG.PHILIPS Displays(주) 전자총 각도 측정 System</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2004</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 LPD P6 Color Filter 노광기 제어부 납품</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2003</div>
+            <div class="history-content">
+                <strong>LG전자 생산 기술원 A2, R2 노광기 제어부 납품</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2002</div>
+            <div class="history-content">
+                <strong>LG전자 생산기술원 PDP 노광기 제어부 납품</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+        
+        <div class="history-item" data-category="control">
+            <div class="history-year">2002</div>
+            <div class="history-content">
+                <strong>LG전자 생산기술원 PDP Pilot 노광기 제어부 납품</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2002</div>
+            <div class="history-content">
+                <strong>LG전자 유기 EL Color Module 시험 장비</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2001</div>
+            <div class="history-content">
+                <strong>LG전자 & LG.PHILIPS Displays(주) LG전자 FTN Project 참여</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2001</div>
+            <div class="history-content">
+                <strong>LG.PHILPS Displays(주) AL TAPE 자동 부착 M/C</strong>
+                <span>LG</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2001</div>
+            <div class="history-content">
+                <strong>LG전자 유기 EL Module 실장 수명 시험기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999~2001</div>
+            <div class="history-content">
+                <strong>LG전자 브라운관 비산 Time 측정기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1998~2000</div>
+            <div class="history-content">
+                <strong>LG전자, 중국, 인도네시아, 영국공장 Base Bonding M/C</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>PDP Pilot Sputtering 장비 개조 참여</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>LG전자 Z-Point 측정 System 설치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>LG전자 면 보호 M/C 전장부 제작 설치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>LG전자 Pilot Line Mask 착, 탈기 전장부 제작 설치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>LG전자 FTN L/Q 세척 M/C 전장부 제작 설치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>LG전자 인도네이사 공장 DDC Line 실시간 생산 관제 System 설치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">2000</div>
+            <div class="history-content">
+                <strong>한국 자동화 동관 Bending Controller</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999~2000</div>
+            <div class="history-content">
+                <strong>LG전자 Monitor 신뢰성 시험 System</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1999</div>
+            <div class="history-content">
+                <strong>LG전자 전자관 도포 Base M/C Servo 설치 제어</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999</div>
+            <div class="history-content">
+                <strong>LG전자 비접촉 표면 온도 측정 장치</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999</div>
+            <div class="history-content">
+                <strong>LG전자 다채널 저항 측정기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999</div>
+            <div class="history-content">
+                <strong>LG전자 물류 현황판</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1999</div>
+            <div class="history-content">
+                <strong>LG전자 영국 공장 Aging Line 생산 현황판</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 4단 적재 물류 System</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 Neck Tapping M/C</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 & 두고 전자 FBT Aging System</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 & 대동 전자 DY Aging System</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>대동 전자 Door Phone 수명 시험기</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>고려 전기 각종 Condenser 수명 시험기</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 DY 종합 시험 System</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 FBT 링김 검사기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1998</div>
+            <div class="history-content">
+                <strong>LG전자 노광기 Servo 이재기</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1997</div>
+            <div class="history-content">
+                <strong>LG 실트론 Polishing M/C</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="control">
+            <div class="history-year">1997</div>
+            <div class="history-content">
+                <strong>삼성 전관 독일 공장 EAR'Measur' M/C</strong>
+                <span></span>
+            </div>
+            <div class="history-tag">산업용 자동화설비(전장제어부)</div>
+        </div>
+
+        <div class="history-item" data-category="system">
+            <div class="history-year">1997</div>
+            <div class="history-content">
+                <strong>LG전자 Aging Line 전압 관측 시스템</strong>
+                <span>LG전자</span>
+            </div>
+            <div class="history-tag">전자기기 개발(계측기)</div>
+        </div>
+
+    </div>
+
+
+
+</main>
+
+
+        <footer>
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>케이원 텍</h4>
+                <p>케이원 텍은 1998년 설립 이래 자동화 제어 시스템 분야의 선두 기업으로 성장해 왔습니다.</p>
+            </div>
+            <div class="footer-contact">
+                <p>연락처: 054-465-5441</p>
+                <p>이메일: kwontech01@kwontech.com</p>
+                <p>본사: 경상북도 구미시 5공단 7로 61</p>
+            </div>
+        </div>
+        <div class="copyright">© KWONTECH Co., Ltd. All Rights Reserved.</div>
+    </footer>
+</body>
+</html>
