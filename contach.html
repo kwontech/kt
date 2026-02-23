@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/company.css">
     <link rel="stylesheet" href="./css/business.css">
@@ -24,92 +25,92 @@
      emailjs.sendForm(gank6974@gmail.com) : emailjs에서 email services 생성한 이메일 사용
      emailjs.sendForm(template_68qd53x) : emailjs에서 email templates 들어가면 생성한 템플릿 아래에 template id : template_~ 라고 나옴 -->
 <script type="text/javascript">
-   (function() {
-       // 2. EmailJS 계정의 Public Key를 입력하세요. (Account -> API Keys 메뉴)
-       emailjs.init("-22O6Dlbguu8JtSuA");
-   })();
+    (function () {
+        // 2. EmailJS 계정의 Public Key를 입력하세요. (Account -> API Keys 메뉴)
+        emailjs.init("-22O6Dlbguu8JtSuA");
+    })();
 
-   window.onload = function() {
-       const form = document.getElementById('ctInquiryForm');
-       
-       form.addEventListener('submit', function(event) {
-           event.preventDefault(); // 폼 제출 시 페이지 새로고침 방지
-           
-           const btn = document.querySelector('.ct-submit-btn');
-           const originalText = btn.innerText;
-           
-           // 전송 중 상태 표시
-           btn.innerText = '전송 중...';
-           btn.style.opacity = '0.7';
-           btn.style.pointerEvents = 'none';
+    window.onload = function () {
+        const form = document.getElementById('ctInquiryForm');
 
-           // 3. Service ID와 Template ID를 입력하세요.
-           // emailjs.sendForm('서비스ID', '템플릿ID', form객체)
-           emailjs.sendForm('gank6974@gmail.com', 'template_68qd53x', this)
-               .then(function() {
-                   alert('성공적으로 문의가 전송되었습니다! 담당자가 확인 후 연락드리겠습니다.');
-                   btn.innerText = originalText;
-                   btn.style.opacity = '1';
-                   btn.style.pointerEvents = 'auto';
-                   form.reset(); // 전송 완료 후 입력창 비우기
-               }, function(error) {
-                   alert('발송에 실패했습니다. 잠시 후 다시 시도해주세요. 에러내용: ' + JSON.stringify(error));
-                   btn.innerText = originalText;
-                   btn.style.opacity = '1';
-                   btn.style.pointerEvents = 'auto';
-               });
-       });
-   }
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // 폼 제출 시 페이지 새로고침 방지
+
+            const btn = document.querySelector('.ct-submit-btn');
+            const originalText = btn.innerText;
+
+            // 전송 중 상태 표시
+            btn.innerText = '전송 중...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            // 3. Service ID와 Template ID를 입력하세요.
+            // emailjs.sendForm('서비스ID', '템플릿ID', form객체)
+            emailjs.sendForm('gank6974@gmail.com', 'template_68qd53x', this)
+                .then(function () {
+                    alert('성공적으로 문의가 전송되었습니다! 담당자가 확인 후 연락드리겠습니다.');
+                    btn.innerText = originalText;
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                    form.reset(); // 전송 완료 후 입력창 비우기
+                }, function (error) {
+                    alert('발송에 실패했습니다. 잠시 후 다시 시도해주세요. 에러내용: ' + JSON.stringify(error));
+                    btn.innerText = originalText;
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                });
+        });
+    }
 </script>
 
 <body>
 
     <header>
-    <div class="container nav-container">
-       <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
-        <nav>
-            <ul class="gnb">
-                <li class="menu-item">
-                    <a href="company.html">회사소개</a>
-                    <ul class="submenu">
-                        <li><a href="company.html?tab=1" >인사말</a></li>
-                        <li><a href="company.html?tab=2">회사개요</a></li>
-                        <li><a href="company.html?tab=3">연혁</a></li>
-                        <li><a href="company.html?tab=4">오시는 길</a></li>
-                        <li><a href="company.html?tab=5">ESG 경영</a></li>
-                    </ul>
-                </li>
+        <div class="container nav-container">
+            <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+            <nav>
+                <ul class="gnb">
+                    <li class="menu-item">
+                        <a href="company.html">회사소개</a>
+                        <ul class="submenu">
+                            <li><a href="company.html?tab=1">인사말</a></li>
+                            <li><a href="company.html?tab=2">회사개요</a></li>
+                            <li><a href="company.html?tab=3">연혁</a></li>
+                            <li><a href="company.html?tab=4">오시는 길</a></li>
+                            <li><a href="company.html?tab=5">ESG 경영</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="business.html">사업분야</a>
-                </li>
+                    <li class="menu-item">
+                        <a href="business.html">사업분야</a>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="certification.html">인증/특허</a>
-                    <ul class="submenu">
-                        <li><a href="certification.html?tab=1">인증현황</a></li>
-                        <li><a href="certification.html?tab=2">특허현황</a></li>
-                    </ul>
-                </li>
+                    <li class="menu-item">
+                        <a href="certification.html">인증/특허</a>
+                        <ul class="submenu">
+                            <li><a href="certification.html?tab=1">인증현황</a></li>
+                            <li><a href="certification.html?tab=2">특허현황</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="achievements.html">주요실적</a>
-                    <ul class="submenu">
-                        <li><a href="achievements.html?tab=1">파트너사</a></li>
-                        <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
-                    </ul>
-                </li>
+                    <li class="menu-item">
+                        <a href="achievements.html">주요실적</a>
+                        <ul class="submenu">
+                            <li><a href="achievements.html?tab=1">파트너사</a></li>
+                            <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="contach.html">문의하기</a>
-                </li>
-                <li class="menu-item groupware-item">
-                    <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+                    <li class="menu-item">
+                        <a href="contach.html">문의하기</a>
+                    </li>
+                    <li class="menu-item groupware-item">
+                        <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <section class="sub-visual">
         <div class="container">
@@ -119,110 +120,118 @@
     </section>
 
 
-<main class="ct-main-container">
-    <div class="ct-page-wrapper">
-        
-        <section class="ct-form-card">
-            <h3 class="ct-card-title">문의 양식</h3>
-            <form id="ctInquiryForm">
-                <div class="ct-input-group">
-                    <label>회사명</label>
-                    <input type="text" name="company_name" placeholder="회사명을 입력하세요 (선택)">
-                </div>
-                <div class="ct-input-group">
-                    <label>담당자명 *</label>
-                    <input type="text" name="from_name" placeholder="이름을 입력하세요" required>
-                </div>
-                <div class="ct-input-group">
-                    <label>연락처 *</label>
-                    <input type="tel" name="contact_number" placeholder="010-0000-0000" required>
-                </div>
-                <div class="ct-input-group">
-                    <label>이메일 *</label>
-                    <input type="email" name="reply_to" placeholder="example@company.com" required>
-                </div>
-                <div class="ct-input-group">
-                    <label>문의 내용 *</label>
-                    <textarea name="message" placeholder="프로젝트 내용이나 문의사항을 상세히 적어주세요." required></textarea>
-                </div>
-                <p class="ct-form-notice">개인정보 수집 및 이용에 동의합니다. 수집된 정보는 문의 답변 목적으로만 사용됩니다.</p>
-                <button type="submit" class="ct-submit-btn">문의하기</button>
-            </form>
-        </section>
+    <main class="ct-main-container">
+        <div class="ct-page-wrapper">
 
-        <div class="ct-info-column">
-            
-            <div class="ct-info-card">
-                <h4 class="ct-info-title">연락처 정보</h4>
-                <div class="ct-info-item">
-                    <div class="ct-icon-box"><i class="fa-solid fa-phone"></i></div>
-                    <div class="ct-text-box">
-                        <strong>전화</strong>
-                        <p>054-465-5441</p>
+            <section class="ct-form-card">
+                <h3 class="ct-card-title">문의 양식</h3>
+                <form id="ctInquiryForm">
+                    <div class="ct-input-group">
+                        <label>회사명</label>
+                        <input type="text" name="company_name" placeholder="회사명을 입력하세요 (선택)">
                     </div>
-                </div>
-                <div class="ct-info-item">
-                    <div class="ct-icon-box"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="ct-text-box">
-                        <strong>이메일</strong>
-                        <p>kwontech01@kwontech.com</p>
+                    <div class="ct-input-group">
+                        <label>담당자명 *</label>
+                        <input type="text" name="from_name" placeholder="이름을 입력하세요" required>
                     </div>
-                </div>
-                <div class="ct-info-item">
-                    <div class="ct-icon-box"><i class="fa-solid fa-clock"></i></div>
-                    <div class="ct-text-box">
-                        <strong>업무시간</strong>
-                        <p>평일 08:30 - 17:30</p>
+                    <div class="ct-input-group">
+                        <label>연락처 *</label>
+                        <input type="tel" name="contact_number" placeholder="010-0000-0000" required>
                     </div>
-                </div>
-            </div>
+                    <div class="ct-input-group">
+                        <label>이메일 *</label>
+                        <input type="email" name="reply_to" placeholder="example@company.com" required>
+                    </div>
+                    <div class="ct-input-group">
+                        <label>문의 내용 *</label>
+                        <textarea name="message" placeholder="프로젝트 내용이나 문의사항을 상세히 적어주세요." required></textarea>
+                    </div>
+                    <p class="ct-form-notice">개인정보 수집 및 이용에 동의합니다. 수집된 정보는 문의 답변 목적으로만 사용됩니다.</p>
+                    <button type="submit" class="ct-submit-btn">문의하기</button>
+                </form>
+            </section>
 
-            <div class="ct-info-card">
-                <div class="ct-info-item">
-                    <div class="ct-icon-box"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="ct-text-box">
-                        <strong>본사</strong>
-                        <p>경북 구미시 5공단 7로 61</p>
-                    </div>
-                </div>
-                <div class="ct-map-box" style="margin-top:12px; border:1px solid #eee; border-radius:6px; overflow:hidden;">
-                    <div style="font:normal normal 400 12px/normal dotum, sans-serif; width:100%; color:#333; position:relative">
-                        <div style="height: 250px; overflow:hidden;">
-                            <a href="https://map.kakao.com/?urlX=820865&urlY=749737&name=%EA%B2%BD%EB%B6%81%20%EA%B5%AC%EB%AF%B8%EC%8B%9C%20%EC%82%B0%EB%8F%99%EC%9D%8D%205%EA%B3%B5%EB%8B%A87%EB%A1%9C%2061" target="_blank">
-                                <img src="http://t1.daumcdn.net/roughmap/imgmap/2b0924c3be0236d4e5aa7a16c1953f133e881cf9375673ef71cf743c1d6acb7f" width="100%" height="250" style="display:block; object-fit:cover;">
-                            </a>
+            <div class="ct-info-column">
+
+                <div class="ct-info-card">
+                    <h4 class="ct-info-title">연락처 정보</h4>
+                    <div class="ct-info-item">
+                        <div class="ct-icon-box"><i class="fa-solid fa-phone"></i></div>
+                        <div class="ct-text-box">
+                            <strong>전화</strong>
+                            <p>054-465-5441</p>
                         </div>
-                        <div style="padding: 8px 12px; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: center; border-top:1px solid #eee;">
-                            <img src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" width="72" height="16" alt="카카오맵">
-                            <div style="font-size: 11px;">
-                                <a target="_blank" href="https://map.kakao.com/?from=roughmap&eName=%EA%B2%BD%EB%B6%81%20%EA%B5%AC%EB%AF%B8%EC%8B%9C%20%EC%82%B0%EB%8F%99%EC%9D%8D%205%EA%B3%B5%EB%8B%A87%EB%A1%9C%2061&eX=820865&eY=749737" style="color:#1a375f; text-decoration: none; font-weight:bold;">길찾기 ></a>
+                    </div>
+                    <div class="ct-info-item">
+                        <div class="ct-icon-box"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="ct-text-box">
+                            <strong>이메일</strong>
+                            <p>kwontech01@kwontech.com</p>
+                        </div>
+                    </div>
+                    <div class="ct-info-item">
+                        <div class="ct-icon-box"><i class="fa-solid fa-clock"></i></div>
+                        <div class="ct-text-box">
+                            <strong>업무시간</strong>
+                            <p>평일 08:30 - 17:30</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ct-info-card">
+                    <div class="ct-info-item">
+                        <div class="ct-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="ct-text-box">
+                            <strong>본사</strong>
+                            <p>경북 구미시 5공단 7로 61</p>
+                        </div>
+                    </div>
+                    <div class="ct-map-box"
+                        style="margin-top:12px; border:1px solid #eee; border-radius:6px; overflow:hidden;">
+                        <div
+                            style="font:normal normal 400 12px/normal dotum, sans-serif; width:100%; color:#333; position:relative">
+                            <div style="height: 250px; overflow:hidden;">
+                                <a href="https://map.kakao.com/?urlX=820865&urlY=749737&name=%EA%B2%BD%EB%B6%81%20%EA%B5%AC%EB%AF%B8%EC%8B%9C%20%EC%82%B0%EB%8F%99%EC%9D%8D%205%EA%B3%B5%EB%8B%A87%EB%A1%9C%2061"
+                                    target="_blank">
+                                    <img src="http://t1.daumcdn.net/roughmap/imgmap/2b0924c3be0236d4e5aa7a16c1953f133e881cf9375673ef71cf743c1d6acb7f"
+                                        width="100%" height="250" style="display:block; object-fit:cover;">
+                                </a>
+                            </div>
+                            <div
+                                style="padding: 8px 12px; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: center; border-top:1px solid #eee;">
+                                <img src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png"
+                                    width="72" height="16" alt="카카오맵">
+                                <div style="font-size: 11px;">
+                                    <a target="_blank"
+                                        href="https://map.kakao.com/?from=roughmap&eName=%EA%B2%BD%EB%B6%81%20%EA%B5%AC%EB%AF%B8%EC%8B%9C%20%EC%82%B0%EB%8F%99%EC%9D%8D%205%EA%B3%B5%EB%8B%A87%EB%A1%9C%2061&eX=820865&eY=749737"
+                                        style="color:#1a375f; text-decoration: none; font-weight:bold;">길찾기 ></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
 
-            
 
-            <div class="ct-info-card ct-suwon-card">
-                <div class="ct-info-item">
-                    <div class="ct-icon-box"><i class="fa-solid fa-building"></i></div>
-                    <div class="ct-text-box">
-                        <strong>수원지사</strong>
-                        <p>경기도 수원시 권선구 오목천로 152번길 40, 803호 (첨단벤처밸리)</p>
+
+                <div class="ct-info-card ct-suwon-card">
+                    <div class="ct-info-item">
+                        <div class="ct-icon-box"><i class="fa-solid fa-building"></i></div>
+                        <div class="ct-text-box">
+                            <strong>수원지사</strong>
+                            <p>경기도 수원시 권선구 오목천로 152번길 40, 803호 (첨단벤처밸리)</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
-</main>
+    </main>
 
 
 
-        <footer>
+    <footer>
         <div class="container footer-grid">
             <div class="footer-info">
                 <h4>케이원 텍</h4>
@@ -238,4 +247,5 @@
     </footer>
 
 </body>
+
 </html>

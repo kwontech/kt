@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>케이원 텍 ㅣ </title>
-    
+
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/company.css">
     <link rel="stylesheet" href="./css/business.css">
@@ -14,112 +15,113 @@
 
     <link rel="stylesheet" href="./index.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
-    // 1. 탭 전환 함수
-    function openTab(evt, tabName) {
-        const contents = document.getElementsByClassName("tab-content");
-        for (let content of contents) {
-            content.style.display = "none";
-            content.classList.remove("active");
+        // 1. 탭 전환 함수
+        function openTab(evt, tabName) {
+            const contents = document.getElementsByClassName("tab-content");
+            for (let content of contents) {
+                content.style.display = "none";
+                content.classList.remove("active");
+            }
+
+            const btns = document.getElementsByClassName("tab-btn");
+            for (let btn of btns) {
+                btn.classList.remove("active");
+            }
+
+            const targetTab = document.getElementById(tabName);
+            if (targetTab) {
+                targetTab.style.display = "block";
+                targetTab.classList.add("active");
+            }
+
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            }
         }
 
-        const btns = document.getElementsByClassName("tab-btn");
-        for (let btn of btns) {
-            btn.classList.remove("active");
+        // 2. 페이지 로드 시 즉시 처리 (핵심 수정 부분)
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tabParam = urlParams.get('tab');
+            const tabBtns = document.querySelectorAll(".tab-btn");
+
+            // 만약 파라미터가 있으면 (?tab=2) 해당 인덱스 버튼 클릭
+            if (tabParam && tabBtns[tabParam - 1]) {
+                tabBtns[tabParam - 1].click();
+            } else {
+                // 파라미터가 없거나 잘못되었으면 첫 번째 탭(인증현황) 강제 클릭
+                if (tabBtns[0]) tabBtns[0].click();
+            }
+        });
+
+        // 3. 인증서 팝업 함수 (기존과 동일)
+        function openCertModal(imgSrc) {
+            const modal = document.getElementById("certModal");
+            const modalImg = document.getElementById("certImage");
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            document.body.style.overflow = "hidden";
         }
 
-        const targetTab = document.getElementById(tabName);
-        if (targetTab) {
-            targetTab.style.display = "block";
-            targetTab.classList.add("active");
+        function closeCertModal() {
+            document.getElementById("certModal").style.display = "none";
+            document.body.style.overflow = "auto";
         }
-        
-        if (evt && evt.currentTarget) {
-            evt.currentTarget.classList.add("active");
-        }
-    }
-
-    // 2. 페이지 로드 시 즉시 처리 (핵심 수정 부분)
-    document.addEventListener('DOMContentLoaded', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const tabParam = urlParams.get('tab'); 
-        const tabBtns = document.querySelectorAll(".tab-btn");
-
-        // 만약 파라미터가 있으면 (?tab=2) 해당 인덱스 버튼 클릭
-        if (tabParam && tabBtns[tabParam - 1]) {
-            tabBtns[tabParam - 1].click();
-        } else {
-            // 파라미터가 없거나 잘못되었으면 첫 번째 탭(인증현황) 강제 클릭
-            if (tabBtns[0]) tabBtns[0].click();
-        }
-    });
-
-    // 3. 인증서 팝업 함수 (기존과 동일)
-    function openCertModal(imgSrc) {
-        const modal = document.getElementById("certModal");
-        const modalImg = document.getElementById("certImage");
-        modal.style.display = "block";
-        modalImg.src = imgSrc;
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeCertModal() {
-        document.getElementById("certModal").style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-</script>
+    </script>
 </head>
+
 <body>
     <header>
-    <div class="container nav-container">
-       <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
-        <nav>
-            <ul class="gnb">
-                <li class="menu-item">
-                    <a href="company.html">회사소개</a>
-                    <ul class="submenu">
-                        <li><a href="company.html?tab=1" >인사말</a></li>
-                        <li><a href="company.html?tab=2">회사개요</a></li>
-                        <li><a href="company.html?tab=3">연혁</a></li>
-                        <li><a href="company.html?tab=4">오시는 길</a></li>
-                        <li><a href="company.html?tab=5">ESG 경영</a></li>
-                    </ul>
-                </li>
+        <div class="container nav-container">
+            <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+            <nav>
+                <ul class="gnb">
+                    <li class="menu-item">
+                        <a href="company.html">회사소개</a>
+                        <ul class="submenu">
+                            <li><a href="company.html?tab=1">인사말</a></li>
+                            <li><a href="company.html?tab=2">회사개요</a></li>
+                            <li><a href="company.html?tab=3">연혁</a></li>
+                            <li><a href="company.html?tab=4">오시는 길</a></li>
+                            <li><a href="company.html?tab=5">ESG 경영</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="business.html">사업분야</a>
-                </li>
+                    <li class="menu-item">
+                        <a href="business.html">사업분야</a>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="certification.html">인증/특허</a>
-                    <ul class="submenu">
-                        <li><a href="certification.html?tab=1">인증현황</a></li>
-                        <li><a href="certification.html?tab=2">특허현황</a></li>
-                    </ul>
-                </li>
+                    <li class="menu-item">
+                        <a href="certification.html">인증/특허</a>
+                        <ul class="submenu">
+                            <li><a href="certification.html?tab=1">인증현황</a></li>
+                            <li><a href="certification.html?tab=2">특허현황</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="achievements.html">주요실적</a>
-                    <ul class="submenu">
-                        <li><a href="achievements.html?tab=1">파트너사</a></li>
-                        <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
-                    </ul>
-                </li>
+                    <li class="menu-item">
+                        <a href="achievements.html">주요실적</a>
+                        <ul class="submenu">
+                            <li><a href="achievements.html?tab=1">파트너사</a></li>
+                            <li><a href="achievements.html?tab=2">프로젝트 이력</a></li>
+                        </ul>
+                    </li>
 
-                <li class="menu-item">
-                    <a href="contach.html">문의하기</a>
-                </li>
-                <li class="menu-item groupware-item">
-                    <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+                    <li class="menu-item">
+                        <a href="contach.html">문의하기</a>
+                    </li>
+                    <li class="menu-item groupware-item">
+                        <a href="https://gw.kwontech.com" target="_blank" class="groupware">Groupware ≫</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
 
-    
+
 
     <section class="sub-visual cert-bg">
         <div class="sub-visual-text">
@@ -128,107 +130,107 @@
         </div>
     </section>
 
-    
-<main class="container" style="padding: 50px 0 100px 0;">
-    <div class="tab-outer-wrapper">
-        <div class="tab-container-round">
-            <button class="tab-btn active" onclick="openTab(event, 'cert-status')">인증현황</button>
-            <button class="tab-btn" onclick="openTab(event, 'patent-status')">특허현황</button>
-        </div>
-    </div>
 
-
-<div id="cert-status" class="tab-content active">
-    <div class="cert-wide-grid">           
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/품질경영시스템 인증서.png')">
-            <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
-            <div class="cert-info">
-                <h3>ISO 9001:2015</h3>
-                <p class="biz-sub-blue">품질경영시스템 인증</p>
-                <span class="cert-date">2023.10 ~ 2026.10</span>
-                <p class="cert-text">국제 표준 품질경영시스템 인증을 통해 체계적인 품질 관리를 실천합니다.</p>
+    <main class="container" style="padding: 50px 0 100px 0;">
+        <div class="tab-outer-wrapper">
+            <div class="tab-container-round">
+                <button class="tab-btn active" onclick="openTab(event, 'cert-status')">인증현황</button>
+                <button class="tab-btn" onclick="openTab(event, 'patent-status')">특허현황</button>
             </div>
         </div>
 
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/기업부설연구소 인정서.png')">
-            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
-            <div class="cert-info">
-                <h3>기업부설연구소</h3>
-                <p class="biz-sub-blue">한국산업기술진흥협회</p>
-                <span class="cert-date">인증 기관 : KOITA</span>
-                <p class="cert-text">자체 연구소를 통해 자동화 제어 시스템 관련 R&D를 수행합니다.</p>
+
+        <div id="cert-status" class="tab-content active">
+            <div class="cert-wide-grid">
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/품질경영시스템 인증서.png')">
+                    <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                    <div class="cert-info">
+                        <h3>ISO 9001:2015</h3>
+                        <p class="biz-sub-blue">품질경영시스템 인증</p>
+                        <span class="cert-date">2023.10 ~ 2026.10</span>
+                        <p class="cert-text">국제 표준 품질경영시스템 인증을 통해 체계적인 품질 관리를 실천합니다.</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/기업부설연구소 인정서.png')">
+                    <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="cert-info">
+                        <h3>기업부설연구소</h3>
+                        <p class="biz-sub-blue">한국산업기술진흥협회</p>
+                        <span class="cert-date">인증 기관 : KOITA</span>
+                        <p class="cert-text">자체 연구소를 통해 자동화 제어 시스템 관련 R&D를 수행합니다.</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/벤처기업확인서.png')">
+                    <div class="icon-box"><i class="fa-solid fa-award"></i></div>
+                    <div class="cert-info">
+                        <h3>벤처기업</h3>
+                        <p class="biz-sub-blue">혁신성장유형</p>
+                        <span class="cert-date">2025.08 ~ 2028.08</span>
+                        <p class="cert-text">기술 혁신과 성장 잠재력을 인정받아 벤처기업으로 지정되었습니다.</p>
+                    </div>
+                </div>
+
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/기술혁신 중소기업 확인서.png')">
+                    <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
+                    <div class="cert-info">
+                        <h3>이노비즈 (Inno-Biz)</h3>
+                        <p class="biz-sub-blue">기술혁신형 중소기업</p>
+                        <span class="cert-date">2025.12 ~ 2028.12</span>
+                        <p class="cert-text">기술 혁신 역량이 우수한 중소기업으로 인증받아 신뢰를 더합니다.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/벤처기업확인서.png')">
-            <div class="icon-box"><i class="fa-solid fa-award"></i></div>
-            <div class="cert-info">
-                <h3>벤처기업</h3>
-                <p class="biz-sub-blue">혁신성장유형</p>
-                <span class="cert-date">2025.08 ~ 2028.08</span>
-                <p class="cert-text">기술 혁신과 성장 잠재력을 인정받아 벤처기업으로 지정되었습니다.</p>
+        <div id="certModal" class="cert-lightbox" onclick="closeCertModal()">
+            <div class="cert-modal-content" onclick="event.stopPropagation()">
+                <div class="cert-modal-header">
+                    <h4 id="certTitle">인증서 확인</h4>
+                    <span class="close-cert" onclick="closeCertModal()">&times;</span>
+                </div>
+                <div class="cert-image-wrap">
+                    <img id="certImage" src="" alt="인증서 원본">
+                </div>
             </div>
         </div>
 
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/기술혁신 중소기업 확인서.png')">
-            <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
-            <div class="cert-info">
-                <h3>이노비즈 (Inno-Biz)</h3>
-                <p class="biz-sub-blue">기술혁신형 중소기업</p>
-                <span class="cert-date">2025.12 ~ 2028.12</span>
-                <p class="cert-text">기술 혁신 역량이 우수한 중소기업으로 인증받아 신뢰를 더합니다.</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-    <div id="certModal" class="cert-lightbox" onclick="closeCertModal()">
-        <div class="cert-modal-content" onclick="event.stopPropagation()">
-            <div class="cert-modal-header">
-                <h4 id="certTitle">인증서 확인</h4>
-                <span class="close-cert" onclick="closeCertModal()">&times;</span>
-            </div>
-            <div class="cert-image-wrap">
-                <img id="certImage" src="" alt="인증서 원본">
-            </div>
-        </div>
-    </div>
+        <!-- 인증/특허 : 특허현황 -->
+        <div id="patent-status" class="tab-content">
+            <div class="cert-wide-grid">
 
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-2117012.png')">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h3>PLC 안전 프로그래밍 시스템</h3>
+                        <p class="biz-sub-blue">제10호-2117012호</p>
+                        <span class="cert-date">2018년 등록</span>
+                        <p class="cert-text">PLC 프로그래밍 시 안전성을 높이고 오류를 사전에 방지할 수 있는 혁신적인 기술입니다.</p>
+                    </div>
+                </div>
 
-<!-- 인증/특허 : 특허현황 -->
-<div id="patent-status" class="tab-content">
-    <div class="cert-wide-grid">
-        
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-2117012.png')">
-            <div class="icon-box">
-                <i class="fa-solid fa-microchip"></i>
-            </div>
-            <div class="cert-info">
-                <h3>PLC 안전 프로그래밍 시스템</h3>
-                <p class="biz-sub-blue">제10호-2117012호</p>
-                <span class="cert-date">2018년 등록</span>
-                <p class="cert-text">PLC 프로그래밍 시 안전성을 높이고 오류를 사전에 방지할 수 있는 혁신적인 기술입니다.</p>
+                <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-1723722.png')">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h3>교체가 용이한 기능성 드라이버</h3>
+                        <p class="biz-sub-blue">제10호-1723722호</p>
+                        <span class="cert-date">2019년 등록</span>
+                        <p class="cert-text">현장에서 빠르고 간편하게 드라이버를 교체할 수 있도록 설계된 기능성 장치입니다.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-1723722.png')">
-            <div class="icon-box">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-            </div>
-            <div class="cert-info">
-                <h3>교체가 용이한 기능성 드라이버</h3>
-                <p class="biz-sub-blue">제10호-1723722호</p>
-                <span class="cert-date">2019년 등록</span>
-                <p class="cert-text">현장에서 빠르고 간편하게 드라이버를 교체할 수 있도록 설계된 기능성 장치입니다.</p>
-            </div>
-        </div>
+    </main>
 
-    </div>
-</div>
-
-</main>
-
-        <footer>
+    <footer>
         <div class="container footer-grid">
             <div class="footer-info">
                 <h4>케이원 텍</h4>
@@ -244,4 +246,5 @@
     </footer>
 
 </body>
+
 </html>

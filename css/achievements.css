@@ -1,9 +1,7 @@
-
-
 .partner-intro-text {
     width: 100%;
-    text-align: center; 
-    margin: 40px 0 60px 0; 
+    text-align: center;
+    margin: 40px 0 60px 0;
 }
 
 .partner-intro-text p {
@@ -15,8 +13,8 @@
 
 .achieve-grid {
     display: grid !important;
-    row-gap: 50px; 
-    column-gap: 40px; 
+    row-gap: 50px;
+    column-gap: 40px;
     grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     margin: 60px auto;
@@ -53,7 +51,7 @@
 }
 
 .achieve-logo-box.eqc-bg {
-    background-color: #1a375f; 
+    background-color: #1a375f;
 }
 
 
@@ -77,8 +75,10 @@
     font-size: 15px;
 }
 
-.filter-btn.active, .filter-btn:hover {
-    background: #1e3a8a; /* 딥블루 포인트 */
+.filter-btn.active,
+.filter-btn:hover {
+    background: #1e3a8a;
+    /* 딥블루 포인트 */
     color: #fff;
     border-color: #1e3a8a;
 }
@@ -90,20 +90,21 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* 박스 사이 간격 */
+    gap: 20px;
+    /* 박스 사이 간격 */
 }
 
+/* 프로젝트 항목:모든 박스의 높이와 정렬을 일치시킴 */
 .history-item {
     display: flex;
     align-items: center;
     background: #fff;
-    
     /* [핵심] 박스 높이 고정 */
-    min-height: 110px; /* 모든 박스의 최소 높이를 통일 (필요시 조절) */
-    
+    min-height: 110px;
+    /* 모든 박스의 최소 높이를 통일 (필요시 조절) */
     padding: 20px 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border: 1px solid #f1f5f9;
     transition: transform 0.2s ease;
 }
@@ -116,8 +117,9 @@
     font-size: 1rem;
     font-weight: 700;
     color: #3b82f6;
-    width: 110px; /* 연도 영역 너비 고정 */
-    flex-shrink: 0; 
+    width: 110px;
+    /* 연도 영역 너비 고정 */
+    flex-shrink: 0;
     background: #eff6ff;
     padding: 6px 10px;
     border-radius: 30px;
@@ -126,10 +128,11 @@
 }
 
 .history-content {
-    flex-grow: 1; 
-    min-width: 0;  /* 텍스트 넘침 방지 */
+    flex-grow: 1;
+    min-width: 0;
+    /* 텍스트 넘침 방지 */
     padding-right: 20px;
-    
+
     /* [추가] 내용이 많아도 중앙 정렬 유지 */
     display: flex;
     flex-direction: column;
@@ -142,7 +145,8 @@
     color: #1e293b;
     margin-bottom: 5px;
     line-height: 1.4;
-    word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 */
+    word-break: keep-all;
+    /* 단어 단위 줄바꿈으로 깔끔하게 */
 }
 
 .history-content span {
@@ -151,40 +155,51 @@
     display: block;
 }
 
+/* 태그 영역:우측에 고정 배치하여 수직 라인을 맞춤 */
 .history-tag {
-    flex-shrink: 0; 
-    width: 220px;  /* 태그 박스 너비 고정 */
-    height: 40px;  /* 태그 높이 고정 */
-    display: flex; /* 태그 내부 글자 중앙 정렬 */
+    flex-shrink: 0;
+    width: 220px;
+    /* 태그 박스 너비 고정 */
+    height: 40px;
+    /* 태그 높이 고정 */
+    display: flex;
+    /* 태그 내부 글자 중앙 정렬 */
     align-items: center;
     justify-content: center;
-    
+
     font-size: 0.85rem;
     background: #f8fafc;
     color: #475569;
     padding: 0 10px;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
-    white-space: normal; /* 태그 내용이 길면 줄바꿈 허용 */
+    white-space: normal;
+    /* 태그 내용이 길면 줄바꿈 허용 */
     line-height: 1.2;
 }
 
+
+/* ==========================================
+   MOBILE RESPONSIVE (반응형 대응)
+   ========================================== */
 /* 모바일에서는 고정 높이를 해제해야 깨지지 않습니다 */
 @media (max-width: 768px) {
     .history-item {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: flex-start;
-        min-height: auto; /* 모바일은 내용에 맞게 조절 */
+        min-height: auto;
+        /* 모바일은 내용에 맞게 조절 */
         padding: 20px;
     }
-    
+
     .history-year {
         margin-bottom: 15px;
         margin-right: 0;
     }
-    
+
     .history-tag {
-        width: 100%; /* 모바일은 가로 꽉 차게 */
+        width: 100%;
+        /* 모바일은 가로 꽉 차게 */
         margin-top: 15px;
     }
 }
