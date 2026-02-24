@@ -561,14 +561,7 @@ footer {
 
 /**/
 @media (max-width: 768px) {
-    /* 1. 최상단에 추가: 어떤 기기든 화면 너비를 벗어나지 않게 고정 */
-    html, body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        position: relative !important;
-        margin: 0;
-        padding: 0;
-    }
+
 
     header {
         height: 70px;
