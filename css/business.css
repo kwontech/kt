@@ -114,6 +114,7 @@
 }
 
 
+
 /* ==========================================
    2. MODAL SYSTEM (상세보기 모달)
    ========================================== */
@@ -346,7 +347,16 @@
     line-height: 1.8;
 }
 
+/* 1. 모달창 메인 제목 색상 변경 (검은색 -> 남색) */
+#modalTitle {
+    color: #1a375f !important;
+    font-weight: 700;
+}
 
+/* 2. 모달창 왼쪽 상단 아이콘 박스 내부 아이콘 색상 */
+#modalIcon {
+    color: #1a375f !important;
+}
 
 
 
@@ -430,4 +440,122 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px 20px;
+}
+
+@media (max-width: 768px) {
+    /* 1. 사업분야 메인 그리드: 3열에서 1열로 변경 */
+    .business-grid {
+        grid-template-columns: 1fr !important; /* 무조건 한 줄로 */
+        width: 90% !important; /* 다른 페이지와 동일한 폭 */
+        margin: 0 auto !important;
+        gap: 25px !important;
+    }
+
+    /* 2. 사업분야 카드 여백 조정 */
+    .biz-card {
+        padding: 25px 20px !important;
+        min-height: auto !important; /* 내용에 맞춰 늘어나도록 */
+    }
+
+    /* 3. 모달창(Modal) 모바일 최적화 */
+    .modal-content {
+        width: 95% !important; /* 모달은 조금 더 넓게 */
+        margin: 10% auto !important; /* 위쪽 여백 살짝 부여 */
+        max-height: 85vh; /* 화면을 너무 넘지 않게 */
+        overflow-y: auto;
+    }
+
+    .modal-header-top {
+        padding: 20px !important;
+        flex-direction: column !important; /* 제목과 X버튼 위치 조정 */
+        align-items: flex-start !important;
+    }
+
+    .close-modal {
+        top: 10px !important;
+        right: 15px !important;
+    }
+
+    /* 4. 모달 내부 레이아웃: 이미지와 글을 위아래로 */
+    .modal-split-body {
+        flex-direction: column !important; /* 이미지 아래로 글이 오게 */
+        padding: 0 !important;
+        gap: 0 !important;
+    }
+
+    .modal-gallery-side {
+        width: 100% !important;
+        max-height: 250px !important; /* 이미지 영역 제한 */
+        display: block !important;
+    }
+
+    .modal-gallery-side .image-box img {
+        height: 250px !important;
+        object-fit: cover !important;
+    }
+
+    .modal-info-side {
+        width: 100% !important;
+        padding: 25px 20px !important;
+        box-sizing: border-box;
+    }
+
+    /* 5. 모달 내 텍스트 및 리스트 조정 */
+    .info-section h4 {
+        font-size: 16px !important;
+    }
+
+    .desc-text {
+        font-size: 14px !important;
+        word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+
+    .modal-list li, .tech-list li {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+    .wb-box {
+        width: 90% !important; /* 가로폭 제한 */
+        margin: 20px auto !important; /* 중앙 정렬 및 위아래 간격 */
+        padding: 30px 20px !important; /* 내부 여백 */
+        box-sizing: border-box;
+    }
+
+    /* 시행일 위치 조정 (제목 아래로) */
+    .wb-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .wb-header span {
+        margin-left: 0 !important;
+        font-size: 13px;
+        color: #888;
+    }
+
+    /* 모달 하얀창 자체의 여백 */
+    .modal-content {
+        width: 92% !important; /* 화면 양옆에 여백 생성 */
+        margin: 10% auto !important; 
+        border-radius: 15px;
+    }
+
+    /* 모달 헤더 (제목 부분) */
+    .modal-header-top {
+        padding: 20px !important;
+    }
+
+    /* 모달 본문 텍스트 여백 */
+    .modal-info-side {
+        padding: 20px !important; /* 텍스트가 박스 끝에 붙지 않게 */
+    }
+
+    /* 장비개요 회색 박스 여백 */
+    .desc-text {
+        padding: 15px !important;
+        margin: 10px 0 !important;
+        line-height: 1.6;
+    }
 }

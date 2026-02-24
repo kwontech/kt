@@ -76,9 +76,16 @@
     <header>
         <div class="container nav-container">
             <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav>
                 <ul class="gnb">
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="company.html">회사소개</a>
                         <ul class="submenu">
                             <li><a href="company.html?tab=1">인사말</a></li>
@@ -93,7 +100,7 @@
                         <a href="business.html">사업분야</a>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="certification.html">인증/특허</a>
                         <ul class="submenu">
                             <li><a href="certification.html?tab=1">인증현황</a></li>
@@ -101,7 +108,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="achievements.html">주요실적</a>
                         <ul class="submenu">
                             <li><a href="achievements.html?tab=1">파트너사</a></li>
@@ -142,7 +149,7 @@
 
         <div id="cert-status" class="tab-content active">
             <div class="cert-wide-grid">
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/품질경영시스템 인증서.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/list 01.png')">
                     <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
                     <div class="cert-info">
                         <h3>ISO 9001:2015</h3>
@@ -152,7 +159,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/기업부설연구소 인정서.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/list 02.png')">
                     <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
                     <div class="cert-info">
                         <h3>기업부설연구소</h3>
@@ -162,7 +169,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/벤처기업확인서.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/list 03.png')">
                     <div class="icon-box"><i class="fa-solid fa-award"></i></div>
                     <div class="cert-info">
                         <h3>벤처기업</h3>
@@ -172,7 +179,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/기술혁신 중소기업 확인서.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/list 04.png')">
                     <div class="icon-box"><i class="fa-solid fa-file-shield"></i></div>
                     <div class="cert-info">
                         <h3>이노비즈 (Inno-Biz)</h3>
@@ -201,7 +208,7 @@
         <div id="patent-status" class="tab-content">
             <div class="cert-wide-grid">
 
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-2117012.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/10-2117012.png')">
                     <div class="icon-box">
                         <i class="fa-solid fa-microchip"></i>
                     </div>
@@ -213,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card" onclick="openCertModal('./회사소개서 image/특허증 제 10-1723722.png')">
+                <div class="cert-card" onclick="openCertModal('./company.list/10-1723722.png')">
                     <div class="icon-box">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                     </div>
@@ -244,6 +251,42 @@
         </div>
         <div class="copyright">© KWONTECH Co., Ltd. All Rights Reserved.</div>
     </footer>
+
+    <script>
+        // 2. 모바일 햄버거 메뉴 열기/닫기
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const gnb = document.querySelector('.gnb');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            gnb.classList.toggle('active');
+        });
+
+        // 3. 모바일 서브메뉴 아코디언 (Open/Close 토글)
+        const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
+
+        menuItemsWithSub.forEach(item => {
+            const mainLink = item.querySelector('a');
+            
+            mainLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); 
+                    e.stopPropagation(); // 이벤트 전파 방지 (버그 방지)
+                    
+                    const isOpen = item.classList.contains('open');
+                    
+                    // 핵심: 열려있으면 닫고, 닫혀있으면 연다
+                    if (isOpen) {
+                        item.classList.remove('open');
+                    } else {
+                        // 다른 메뉴 클릭 시 기존 열린 메뉴 닫고 싶으면 아래 주석 해제
+                        // menuItemsWithSub.forEach(el => el.classList.remove('open'));
+                        item.classList.add('open');
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 

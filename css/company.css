@@ -166,6 +166,7 @@
 .overview-header h3 {
     font-size: 26px;
     line-height: 1.2;
+    color: #1a375f;
 }
 
 .overview-header h3 span {
@@ -300,9 +301,7 @@
     gap: 20px;
 }
 
-.comp-history-item:hover {
-    transform: translateY(-3px);
-}
+
 
 .comp-history-item .year-mini {
     font-weight: 700;
@@ -430,7 +429,7 @@
 .esg-card h3 {
     font-size: 22px;
     margin-bottom: 25px;
-    color: #000;
+    color: #1a375f;
 }
 
 .esg-list {
@@ -536,15 +535,6 @@
 }
 
 
-/* 모바일 대응 (화면이 작아질 때 버튼 크기 조절) */
-@media (max-width: 768px) {
-    .tab-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
-
 /* ==========================================
    RESPONSIVE (반응형 설정)
    ========================================== */
@@ -563,5 +553,285 @@
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@media (max-width:768px) {
+
+    /* 1. 탭 전체 컨테이너 */
+    .tab-outer-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        /* 항상 중앙 정렬 시도 */
+        padding: 0 10px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* 2. 알약 모양 바 (중복 제거 및 통합) */
+    .tab-container-round {
+        display: inline-flex !important;
+        /* 내용물만큼만 너비 가짐 */
+        min-width: min-content !important;
+        max-width: 100% !important;
+        background: #f1f5f9 !important;
+        padding: 5px !important;
+        border-radius: 50px !important;
+        gap: 4px !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+        scrollbar-width: none;
+        /* 메뉴가 많아지면 자연스럽게 왼쪽 정렬로 전환되도록 함 */
+        margin: 0 auto !important;
+    }
+
+    /* 3. 탭 버튼 스타일 통합 */
+    .tab-container-round .tab-btn {
+        padding: 8px 16px !important;
+        /* 가로폭을 적절히 유지 (너무 좁지 않게) */
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        border-radius: 40px !important;
+        flex: 0 0 auto !important;
+        /* 너비 고정 유지 */
+        line-height: 1 !important;
+        border: none !important;
+        background: transparent;
+        color: #64748b;
+        transition: all 0.3s ease;
+    }
+
+    /* 활성화 상태 */
+    .tab-container-round .tab-btn.active {
+        background: #ffffff !important;
+        color: #1a375f !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* 스크롤바 숨기기 */
+    .tab-container-round::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* 인사말 */
+    .greeting-content {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .greeting-text h2 {
+        font-size: 24px !important;
+        word-break: keep-all;
+        line-height: 1.4;
+        margin: 0 auto 25px auto !important;
+    }
+
+    .greeting-text p {
+        font-size: 15px !important;
+        word-break: keep-all;
+        margin: 0 27px 25px !important;
+    }
+
+    .greeting-image-long {
+        order: -1;
+        width: 85%;
+        margin: 0 auto 25px auto !important;
+        min-height: auto !important;
+        height: 220px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .greeting-image-long img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .greeting-text {
+        padding: 0 20px;
+    }
+
+    .greeting-text h2 {
+        font-size: 22px !important;
+        word-break: keep-all;
+        text-align: center;
+    }
+
+    .greeting-text p {
+        font-size: 15px !important;
+        word-break: keep-all;
+        text-align: center;
+    }
+
+    .ceo-sign-left {
+        text-align: center !important;
+        margin-top: 30px;
+    }
+
+    .overview-header h3 {
+        font-size: 20px;
+    }
+
+    /* 3. 회사개요 테이블 최적화 */
+    .overview-card {
+        width: 95% !important;
+        padding: 30px 20px !important;
+        margin: 0 auto !important;
+    }
+
+    .overview-header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 30px !important;
+    }
+
+    .overview-table th {
+        width: 90px !important;
+        /* 제목 영역 축소 */
+        font-size: 14px !important;
+        padding: 15px 5px !important;
+    }
+
+    .overview-table td {
+        font-size: 14px !important;
+        padding: 15px 0 !important;
+        word-break: keep-all;
+    }
+
+    /* 4. 회사 연혁 최적화 */
+    #tab-3 .overview-card {
+        width: 95% !important;
+        padding: 30px 15px !important;
+    }
+
+    .history-container::before {
+        left: 15px !important;
+        /* 세로선 왼쪽으로 밀기 */
+    }
+
+    .history-dot {
+        left: 11px !important;
+    }
+
+    .history-year-label {
+        margin-left: 40px !important;
+        font-size: 16px !important;
+    }
+
+    .comp-history-item {
+        margin-left: 35px !important;
+        /* 선과의 간격 조정 */
+        padding: 15px !important;
+        flex-direction: column !important;
+        /* 연도와 내용을 위아래로 */
+        gap: 8px !important;
+    }
+
+    .comp-history-item .year-mini {
+        font-size: 15px !important;
+    }
+
+    .comp-history-item .content-mini {
+        font-size: 14px !important;
+    }
+
+    /* 오시는 길 전체 컨테이너 여백 확보 */
+    .location-container-horizontal {
+        flex-direction: column !important;
+        /* 가로 배열을 세로로 */
+        align-items: center !important;
+        gap: 30px !important;
+        padding: 0 !important;
+    }
+
+    .location-card {
+        width: 90% !important;
+        /* 앞선 탭들과 동일한 폭 */
+        min-width: unset !important;
+        /* 450px 강제 설정 해제 */
+        max-width: none !important;
+        margin: 0 auto !important;
+        padding: 25px 20px !important;
+        /* 내부 여백 최적화 */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* 2. 제목 및 텍스트 정렬 */
+    .location-title h3 {
+        font-size: 19px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .location-title p {
+        font-size: 14px !important;
+        line-height: 1.4;
+        word-break: keep-all;
+    }
+
+    /* 3. 지도 영역: 비율에 맞춰 높이 조절 */
+    .map-area {
+        height: 250px !important;
+        /* 모바일에서 적당한 지도 높이 */
+        margin: 15px 0 !important;
+    }
+
+    .map-area img {
+        height: 250px !important;
+        /* 카카오맵 정적 이미지 높이 조절 */
+    }
+
+    /* 4. 하단 연락처 정보 */
+    .location-card>p {
+        font-size: 14px !important;
+        margin-top: 15px !important;
+        text-align: right;
+        /* 전화번호는 오른쪽 정렬로 포인트 */
+    }
+
+
+
+    /* 2. ESG 경영 (tab-5) 카드 섹션 */
+    .esg-content-container {
+        padding: 0 15px !important;
+    }
+
+    .esg-card-section {
+        flex-direction: column !important;
+        /* 3단 배열 -> 1단 배열 */
+        gap: 15px !important;
+    }
+
+    .esg-card {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 30px 20px !important;
+    }
+
+    .esg-list li {
+        font-size: 14px !important;
+        /* 글자 크기 살짝 축소 */
+    }
+
+    /* 3. 내부신고자 제도 (그리드 레이아웃) */
+    .wb-box {
+        padding: 25px 20px !important;
+    }
+
+    .wb-content {
+        grid-template-columns: 1fr !important;
+        /* 2열 -> 1열 */
+        gap: 15px !important;
+    }
+
+    .wb-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .wb-header h3 {
+        font-size: 18px !important;
     }
 }

@@ -25,12 +25,14 @@
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
+    /* 기본 그림자는 살려두되 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* 아래 transition에서 transform과 box-shadow 관련 내용을 지우거나 그대로 두셔도 됩니다 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .achieve-card:hover {
-    transform: translateY(-10px);
+    transform: none !important; /* 혹시 모르니 추가 */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -201,5 +203,90 @@
         width: 100%;
         /* 모바일은 가로 꽉 차게 */
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 1. 파트너사 그리드: 2열로 조정하고 가로폭 90% 맞춤 */
+    .achieve-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        width: 90% !important;
+        margin: 0 auto !important;
+        gap: 15px !important;
+    }
+
+    .achieve-logo-box {
+        height: 80px !important;
+        /* 모바일에서 로고 박스 높이 축소 */
+        padding: 10px !important;
+    }
+
+    .partner-intro-text p {
+        font-size: 15px;
+        margin: 0 40px;
+    }
+
+    /* 2. 프로젝트 이력 필터 버튼: 가로 스크롤 허용 및 크기 조정 */
+    .history-filter {
+        display: flex !important;
+       
+        /* 버튼이 많으면 옆으로 밀어서 선택 */
+        white-space: nowrap !important;
+        justify-content: flex-start !important;
+        padding: 10px 5% !important;
+        /* 양옆 여백 */
+        gap: 10px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-btn {
+        padding: 8px 18px !important;
+        font-size: 13px !important;
+        flex-shrink: 0 !important;
+        /* 버튼 형태 유지 */
+    }
+
+    /* 3. 프로젝트 이력 리스트 디자인 (핵심) */
+    .history-list {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+
+    .history-item {
+        flex-direction: column !important;
+        /* 가로 배열을 세로로 */
+        align-items: flex-start !important;
+        padding: 20px !important;
+        gap: 12px !important;
+    }
+
+    .history-year {
+        width: auto !important;
+        font-weight: 700;
+        color: #1a375f;
+        font-size: 14px;
+        background: #f1f5f9;
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+
+    .history-content {
+        flex: none !important;
+        width: 100%;
+    }
+
+    .history-content strong {
+        font-size: 16px !important;
+        display: block;
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+
+    .history-tag {
+        align-self: flex-start !important;
+        /* 태그를 왼쪽 하단으로 */
+        font-size: 14px !important;
+        padding: 4px 10px !important;
     }
 }

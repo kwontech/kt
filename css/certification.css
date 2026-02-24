@@ -22,6 +22,11 @@
     box-sizing: border-box;
 }
 
+.icon-box
+{
+    color: #1a375f;
+}
+
 .cert-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
@@ -30,7 +35,7 @@
 .cert-info h3 {
     font-size: 22px;
     margin-bottom: 8px;
-    color: #333;
+    color: #1a375f;
 }
 
 .cert-date {
@@ -118,5 +123,79 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. 탭 바를 감싸는 전체 영역 (여백 확보) */
+    .tab-outer-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* 가운데 정렬 */
+        margin-bottom: 30px;
+    }
+
+    /* 2. 실제 버튼이 들어있는 흰색 바의 길이를 줄임 */
+    .tab-container-round {
+        width: auto !important; /* 내용만큼만 늘어나게 변경 */
+        min-width: 250px; /* 너무 작아지지 않게 최소 길이 설정 */
+        display: inline-flex !important; /* 버튼 수에 맞게 너비 조절 */
+        padding: 5px !important;
+        background: #f1f5f9 !important; /* 배경색이 있다면 유지 */
+        border-radius: 50px !important;
+    }
+
+    /* 3. 각 탭 버튼의 간격과 크기 */
+    .tab-btn {
+        flex: 1; /* 두 버튼이 공평하게 나눠 가짐 */
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        white-space: nowrap; /* 글자 줄바꿈 방지 */
+    }
+    
+    /* 1. 인증/특허 그리드: 2열에서 1열로 변경 및 가로폭 90% 통일 */
+    .cert-wide-grid {
+        grid-template-columns: 1fr !important; /* 무조건 한 줄로 */
+        width: 90% !important; /* 다른 페이지와 동일한 폭 */
+        margin: 0 auto !important;
+        padding: 0 !important; /* 컨테이너 자체 패딩 제거 */
+        gap: 20px !important;
+    }
+
+    /* 2. 인증/특허 카드 디자인 조정 */
+    .cert-card {
+        flex-direction: column !important; /* 아이콘을 위로, 내용을 아래로 */
+        align-items: center !important;
+        text-align: center;
+        padding: 25px 20px !important;
+    }
+
+    .cert-card .icon-box {
+        margin-bottom: 15px;
+    }
+
+    .cert-info h3 {
+        font-size: 19px !important;
+    }
+
+    .cert-text {
+        font-size: 14px !important;
+        line-height: 1.5;
+        word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 */
+    }
+
+    /* 3. 인증서 이미지 팝업(Lightbox) 모바일 여백 부여 */
+    .cert-modal-content {
+        width: 90% !important; /* 화면 양옆에 여백 생성 */
+        margin: 5vh auto !important; /* 상하 여백 */
+        max-height: 90vh !important;
+    }
+
+    .cert-image-wrap {
+        padding: 10px 15px 25px !important; /* 이미지 주변 여백 축소 */
+    }
+
+    .cert-image-wrap img {
+        max-height: 70vh !important; /* 이미지가 화면 밖으로 나가지 않게 조절 */
     }
 }

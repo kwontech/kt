@@ -24,6 +24,7 @@
 
     <meta name="google-site-verification" content="1e9QCZiJOIeOCgviSecI2u1Qaxh9B46h9H0RgL5f9Bg" />
 
+    
     <script>
         var swiper = new Swiper(".mySwiper", {
             loop: true,  // 슬라이드 무한 반복
@@ -59,9 +60,16 @@
     <header>
         <div class="container nav-container">
             <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav>
                 <ul class="gnb">
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="company.html">회사소개</a>
                         <ul class="submenu">
                             <li><a href="company.html?tab=1">인사말</a></li>
@@ -76,7 +84,7 @@
                         <a href="business.html">사업분야</a>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="certification.html">인증/특허</a>
                         <ul class="submenu">
                             <li><a href="certification.html?tab=1">인증현황</a></li>
@@ -84,7 +92,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="achievements.html">주요실적</a>
                         <ul class="submenu">
                             <li><a href="achievements.html?tab=1">파트너사</a></li>
@@ -233,19 +241,52 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. 메인 슬라이더 통합 설정
         var swiper = new Swiper(".mySwiper", {
             loop: true,
+            speed: 2000,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            effect: 'slide',
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            autoplay: {
-                delay: 5000,
-            },
         });
-    </script>
+
+        // 마우스 올리면 멈춤 기능 (통합)
+        const swiperContainer = document.querySelector('.mySwiper');
+        swiperContainer.addEventListener('mouseenter', () => swiper.autoplay.stop());
+        swiperContainer.addEventListener('mouseleave', () => swiper.autoplay.start());
+
+        // 2. 모바일 햄버거 메뉴
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const gnb = document.querySelector('.gnb');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            gnb.classList.toggle('active');
+        });
+
+        // 3. 모바일 서브메뉴 아코디언
+        const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
+        menuItemsWithSub.forEach(item => {
+            const mainLink = item.querySelector('a');
+            mainLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); 
+                    item.classList.toggle('open');
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

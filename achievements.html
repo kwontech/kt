@@ -17,6 +17,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
+        function filterProject(category) {
+    // 버튼 상태 변경
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => btn.classList.remove('active'));
+    
+    // 클릭된 버튼 찾아서 active 추가 (이벤트 객체를 활용하거나 직접 타겟팅)
+    event.currentTarget.classList.add('active');
+
+    // 리스트 필터링 애니메이션 처리
+    const items = document.querySelectorAll('.history-item');
+    items.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+            item.style.display = 'flex';
+            item.style.opacity = '0';
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transition = 'opacity 0.3s ease';
+            }, 10);
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
         // 1. 탭 전환 기능
         function openTab(evt, tabName) {
             const contents = document.getElementsByClassName("tab-content");
@@ -87,9 +112,16 @@
     <header>
         <div class="container nav-container">
             <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav>
                 <ul class="gnb">
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="company.html">회사소개</a>
                         <ul class="submenu">
                             <li><a href="company.html?tab=1">인사말</a></li>
@@ -104,7 +136,7 @@
                         <a href="business.html">사업분야</a>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="certification.html">인증/특허</a>
                         <ul class="submenu">
                             <li><a href="certification.html?tab=1">인증현황</a></li>
@@ -112,7 +144,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item has-sub">
                         <a href="achievements.html">주요실적</a>
                         <ul class="submenu">
                             <li><a href="achievements.html?tab=1">파트너사</a></li>
@@ -790,6 +822,43 @@
         </div>
         <div class="copyright">© KWONTECH Co., Ltd. All Rights Reserved.</div>
     </footer>
+
+    <script>
+        // 2. 모바일 햄버거 메뉴 열기/닫기
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const gnb = document.querySelector('.gnb');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            gnb.classList.toggle('active');
+        });
+
+        // 3. 모바일 서브메뉴 아코디언 (Open/Close 토글)
+        const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
+
+        menuItemsWithSub.forEach(item => {
+            const mainLink = item.querySelector('a');
+            
+            mainLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); 
+                    e.stopPropagation(); // 이벤트 전파 방지 (버그 방지)
+                    
+                    const isOpen = item.classList.contains('open');
+                    
+                    // 핵심: 열려있으면 닫고, 닫혀있으면 연다
+                    if (isOpen) {
+                        item.classList.remove('open');
+                    } else {
+                        // 다른 메뉴 클릭 시 기존 열린 메뉴 닫고 싶으면 아래 주석 해제
+                        // menuItemsWithSub.forEach(el => el.classList.remove('open'));
+                        item.classList.add('open');
+                    }
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>
