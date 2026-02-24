@@ -221,21 +221,20 @@
     /* 2. 프로젝트 이력 필터 버튼: 가로 스크롤 허용 및 크기 조정 */
     .history-filter {
         display: flex !important;
-
-        /* 버튼이 많으면 옆으로 밀어서 선택 */
-        white-space: nowrap !important;
-        justify-content: flex-start !important;
-        padding: 10px 5% !important;
-        /* 양옆 여백 */
-        gap: 10px !important;
-        -webkit-overflow-scrolling: touch;
+        flex-wrap: wrap !important;       /* 버튼이 넘치면 다음 줄로 */
+        justify-content: center !important; /* 버튼들을 가운대로 모음 */
+        padding: 0 5% !important;
+        gap: 8px !important;               /* 버튼 사이 간격 축소 */
+        overflow-x: visible !important;    /* 옆으로 밀리는 현상 방지 */
+        margin-bottom: 30px !important;
     }
 
+    /* 2. 필터 버튼: 모바일에서 너무 커지지 않게 조정 */
     .filter-btn {
-        padding: 8px 18px !important;
+        padding: 8px 15px !important;      /* 좌우 여백 살짝 줄임 */
         font-size: 13px !important;
-        flex-shrink: 0 !important;
-        /* 버튼 형태 유지 */
+        flex: none !important;             /* 너비를 고정하지 않음 */
+        border-radius: 6px !important;
     }
 
     /* 3. 프로젝트 이력 리스트 디자인 (핵심) */

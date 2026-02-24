@@ -442,11 +442,18 @@
 @media (max-width: 768px) {
     /* 1. 사업분야 메인 그리드: 3열에서 1열로 변경 */
     .business-grid {
-        grid-template-columns: 1fr !important; /* 무조건 한 줄로 */
-        width: 90% !important; /* 다른 페이지와 동일한 폭 */
-        margin: 0 auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 1열 배치 */
+        width: 90% !important;
+        margin: 50px auto 80px auto !important; /* 순서: 상(50) 좌우(auto) 하(80) */
         gap: 25px !important;
     }
+
+    /* 상단 남색 박스 자체에도 모바일 높이 여유를 줄 경우 (선택사항) */
+    .sub-visual {
+        height: 200px !important; /* 모바일에서 너무 높으면 조절 */
+    }
+
 
     /* 2. 사업분야 카드 여백 조정 */
     .biz-card {
@@ -560,4 +567,6 @@
         margin: 10px 0 !important;
         line-height: 1.6;
     }
+
+
 }

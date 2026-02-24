@@ -583,7 +583,7 @@
         flex-wrap: nowrap !important;
         scrollbar-width: none;
         /* 메뉴가 많아지면 자연스럽게 왼쪽 정렬로 전환되도록 함 */
-        margin: 0 auto !important;
+        margin: 30px  auto !important;
     }
 
     /* 3. 탭 버튼 스타일 통합 */
@@ -834,4 +834,19 @@
     .wb-header h3 {
         font-size: 18px !important;
     }
+
+    .tab-content, 
+    .greeting-content, 
+    .overview-card, 
+    .history-container, 
+    .location-wrapper, 
+    .esg-content-container,
+    .wb-box {
+        margin-bottom: 60px !important; /* 푸터와의 간격을 60px로 강제 확보 */
+    }
+
+
+
+
+   
 }
