@@ -499,73 +499,30 @@ footer {
 }
 
 
-/* 기본적으로 모바일 버튼 숨김 */
+/* 기본적으로 모바일 버튼 숨김 (삼지창) */
 .mobile-menu-btn {
     display: none;
 }
 
-/* ==========================================
-   3. RESPONSIVE (반응형 설정)
-   ========================================== */
-@media (max-width: 1200px)
-/* 태블릿/작은 모니터 : 폰트 크기 축소 및 패딩 조절 */
-    {
 
-    .container,
-    .main-visual .text-box {
-        padding: 0 20px;
-    }
-
-    .menu-item {
-        padding: 0 10px;
-    }
-
-    .menu-item>a {
-        font-size: 15px;
-    }
-
-    .groupware-item {
-        padding-left: 15px;
-    }
-
-    .main-visual .text-box h2 {
-        font-size: 36px;
-    }
-
-    .main-visual .text-box p {
-        font-size: 18px;
-    }
-}
-
-
-@media (max-width: 1024px)
-/* 퀵메뉴가 좁아지면 3개씩 줄바꿈 */
-    {
-    .quick-menu {
-        flex-wrap: wrap;
-    }
-
-    .quick-item {
-        flex: none;
-        width: calc(33.33% - 15px);
-    }
-}
-
-@media (max-width: 600px)
-/* 모바일: 퀵메뉴 2개씩 배치 */
-    {
-    .quick-item {
-        width: calc(50% - 15px);
-    }
-}
 
 /**/
 @media (max-width: 768px) {
 
+    header,
+    .nav-container,
+    .container,
+    .quick-menu,
+    .partner-grid {
+        min-width: 100% !important;
+        /* 1500px 설정을 무시하고 화면 꽉 차게 */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
 
     header {
-        height: 70px;
-        position: relative !important;
+        height: 60px;
     }
 
     .nav-container,
@@ -574,36 +531,53 @@ footer {
     }
 
     .nav-container {
-        height: 70px;
-        padding: 0 20px;
+        height: 60px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        position: relative !important;
+        pad: 0 20px !important;
+    }
+
+    .logo img {
+        height: 35px;
+        margin-left: -15px;
+        margin-bottom: -2px;
     }
 
     /* 모바일 버튼 보이기 */
     .mobile-menu-btn {
-        position: absolute !important;
+       
 
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 25px;
         height: 18px;
         cursor: pointer;
-        z-index: 1001;
-        margin-left: 230px;
+        z-index: 10001;
+        
+        position: absolute !important;
+        right: 3px !important; 
+        top: 22px !important;
+        transform: none !important; /* 세로 정중앙 */
+        margin: 0 !important; /* margin-left 제거 */
     }
 
     .mobile-menu-btn.active {
         position: fixed !important;
-        /* 화면에 박제되어 따라옴 */
+        right: 30px !important; /* 메뉴판 우측 끝에서 살짝 안으로 */
+        top: 30px !important;
     }
 
+    /* 삼지창 */
     .mobile-menu-btn span {
         display: block;
         width: 100%;
         height: 2px;
         background: #fff;
         transition: 0.3s;
-        margin-left: 60px;
+       
     }
 
     /* 햄버거 버튼 애니메이션 (X표시) */
@@ -622,8 +596,6 @@ footer {
     /* 모바일 GNB */
     .gnb {
         display: flex !important;
-
-
         position: fixed;
         top: 0;
         right: -100%;
@@ -710,7 +682,7 @@ footer {
     }
 
     .main-visual .text-box h2 {
-        font-size: 35px;
+        font-size: 30px;
         font-weight: 600;
     }
 
@@ -729,6 +701,16 @@ footer {
         word-break: keep-all;
         /* 단어 단위 줄바꿈 */
         overflow-wrap: break-word;
+    }
+
+    .text-box h2 {
+        font-size: 30px;
+        margin-left: -35px;
+    }
+
+    .text-box p {
+        font-size: 15px;
+        margin-left: -35px;
     }
 
     /* 1. 퀵 메뉴 (회색 배경 위 하얀 박스들) 콤팩트하게 */
@@ -825,31 +807,37 @@ footer {
         /* 너무 튀지 않게 은은하게 */
     }
 
+    footer {
+        padding: 40px 0 20px !important;
+        /* 상단 70px -> 40px로 대폭 줄임 */
+    }
+
     .footer-grid {
         display: flex;
         flex-direction: column;
         /* 세로 정렬 */
         align-items: center;
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 25px;
+        margin-bottom: 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .footer-info {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         /* 설명과 정보 사이 구분감 */
     }
 
     .footer-info h4 {
         font-size: 20px;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         color: #fff;
     }
 
     .footer-info p {
         font-size: 14px;
-        line-height: 1.6;
+        line-height: 1.5;
         word-break: keep-all;
         padding: 0 10px;
     }
@@ -858,7 +846,8 @@ footer {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
+        margin-bottom: 20px;
         /* 정보 간 간격 촘촘하게 */
     }
 
@@ -874,4 +863,6 @@ footer {
     .footer-contact p:last-child {
         word-break: keep-all;
     }
+
+    
 }
