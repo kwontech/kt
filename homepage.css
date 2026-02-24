@@ -565,6 +565,12 @@ footer {
 
     header {
         height: 70px;
+        position: relative !important;
+    }
+
+    .nav-container,
+    .menu-item>a {
+        line-height: 70px;
     }
 
     .nav-container {
@@ -587,8 +593,9 @@ footer {
     }
 
     .mobile-menu-btn.active {
-    position: fixed !important; /* 화면에 박제되어 따라옴 */
-}
+        position: fixed !important;
+        /* 화면에 박제되어 따라옴 */
+    }
 
     .mobile-menu-btn span {
         display: block;
@@ -617,7 +624,7 @@ footer {
         display: flex !important;
 
 
-        position: fixed ;
+        position: fixed;
         top: 0;
         right: -100%;
         width: 70% !important;
@@ -688,12 +695,13 @@ footer {
         line-height: 1.5 !important;
     }
 
-    
-        /* 제목과 그리드 사이 간격 줄이기 */
-    .section-title
-    {
-        font-size: 18px; /* 제목 크기를 모바일에 맞게 축소 */
-        margin-bottom: 25px; /* 제목과 로고 사이 간격 줄임 */
+
+    /* 제목과 그리드 사이 간격 줄이기 */
+    .section-title {
+        font-size: 18px;
+        /* 제목 크기를 모바일에 맞게 축소 */
+        margin-bottom: 25px;
+        /* 제목과 로고 사이 간격 줄임 */
         color: #666;
     }
 
@@ -715,93 +723,112 @@ footer {
         margin-bottom: -30px;
     }
 
-    .intro-section p, 
+    .intro-section p,
     .footer-info p,
     .text-box p {
-        word-break: keep-all; /* 단어 단위 줄바꿈 */
+        word-break: keep-all;
+        /* 단어 단위 줄바꿈 */
         overflow-wrap: break-word;
     }
 
     /* 1. 퀵 메뉴 (회색 배경 위 하얀 박스들) 콤팩트하게 */
     .gray-bg-wrapper {
-        padding: 40px 0; /* 위아래 여백 절반으로 축소 */
+        padding: 40px 0;
+        /* 위아래 여백 절반으로 축소 */
     }
 
     .quick-menu {
-        gap: 10px; /* 박스 사이 간격 좁힘 */
+        gap: 10px;
+        /* 박스 사이 간격 좁힘 */
     }
 
     .quick-item {
-        padding: 20px 10px; /* 내부 여백 축소 */
+        padding: 20px 10px;
+        /* 내부 여백 축소 */
         border-radius: 10px;
     }
 
     .icon-circle {
-        width: 45px; /* 아이콘 원 사이즈 축소 */
+        width: 45px;
+        /* 아이콘 원 사이즈 축소 */
         height: 45px;
         margin-bottom: 15px;
-        font-size: 18px; /* 아이콘 자체 크기 조절 */
+        font-size: 18px;
+        /* 아이콘 자체 크기 조절 */
     }
 
     .quick-item h3 {
-        font-size: 0.95rem; /* 글자 크기 축소 */
+        font-size: 0.95rem;
+        /* 글자 크기 축소 */
         margin-bottom: 5px;
     }
 
     .quick-item p {
-        display: none; /* [결정적] 모바일에서 부가 설명은 숨겨야 훨씬 깔끔합니다 */
+        display: none;
+        /* [결정적] 모바일에서 부가 설명은 숨겨야 훨씬 깔끔합니다 */
     }
 
     /* 2. 케이원텍 소개 섹션 (여백 최적화) */
     .intro-section {
-        padding: 60px 0; /* 120px -> 60px로 여백 대폭 축소 */
+        padding: 60px 0;
+        /* 120px -> 60px로 여백 대폭 축소 */
     }
 
     .intro-section h2 {
-        font-size: 24px; /* 메인 타이틀 크기 조절 */
+        font-size: 24px;
+        /* 메인 타이틀 크기 조절 */
     }
 
     .blue-text {
         font-size: 15px;
-        margin-bottom: 25px; /* 아래 설명과의 간격 좁힘 */
+        margin-bottom: 25px;
+        /* 아래 설명과의 간격 좁힘 */
     }
 
-    .description, .partner-text {
-        font-size: 14px; /* 본문 폰트 사이즈 최적화 */
+    .description,
+    .partner-text {
+        font-size: 14px;
+        /* 본문 폰트 사이즈 최적화 */
         line-height: 1.6;
-        padding: 0 15px; /* 양옆 여백 */
+        padding: 0 15px;
+        /* 양옆 여백 */
     }
-    
-    .section-title
-    {
+
+    .section-title {
         margin-bottom: 20px;
     }
 
     /* 3. 파트너사 로고 (무채색 & 콤팩트) */
     .partner-section {
-        padding: 40px 0 50px; /* 여백 줄임 */
+        padding: 40px 0 50px;
+        /* 여백 줄임 */
     }
 
     .partner-grid {
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 5px; /* 로고들 더 밀착 */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        /* 로고들 더 밀착 */
     }
 
     .partner-logo {
         height: 60px;
-       
-        box-shadow: none !important; /* 그림자 제거 */
+
+        box-shadow: none !important;
+        /* 그림자 제거 */
     }
 
     .partner-logo img {
         width: 75% !important;
-        filter: grayscale(100%); /* [결정적] 무채색 고정 */
-        opacity: 0.6; /* 너무 튀지 않게 은은하게 */
+        filter: grayscale(100%);
+        /* [결정적] 무채색 고정 */
+        opacity: 0.6;
+        /* 너무 튀지 않게 은은하게 */
     }
-    
+
     .footer-grid {
         display: flex;
-        flex-direction: column; /* 세로 정렬 */
+        flex-direction: column;
+        /* 세로 정렬 */
         align-items: center;
         text-align: center;
         padding-bottom: 30px;
@@ -809,8 +836,9 @@ footer {
     }
 
     .footer-info {
-       width: 100%;
-        margin-bottom: 30px; /* 설명과 정보 사이 구분감 */
+        width: 100%;
+        margin-bottom: 30px;
+        /* 설명과 정보 사이 구분감 */
     }
 
     .footer-info h4 {
@@ -830,15 +858,18 @@ footer {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 8px; /* 정보 간 간격 촘촘하게 */
+        gap: 8px;
+        /* 정보 간 간격 촘촘하게 */
     }
 
     .footer-contact p {
-        text-align: center; /* 중앙 정렬 */
+        text-align: center;
+        /* 중앙 정렬 */
         font-size: 13px;
         margin-bottom: 0;
         opacity: 0.8;
     }
+
     /* 본사 주소가 너무 길면 잘리거나 깨지므로 조절 */
     .footer-contact p:last-child {
         word-break: keep-all;
