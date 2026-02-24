@@ -561,45 +561,41 @@ footer {
 
 /**/
 @media (max-width: 768px) {
-    body{
-        padding-top: 70px !important;
-    }
-
     /* 1. 최상단에 추가: 어떤 기기든 화면 너비를 벗어나지 않게 고정 */
     html, body {
         overflow-x: hidden !important;
         width: 100% !important;
+        position: relative !important;
+        margin: 0;
+        padding: 0;
     }
 
     header {
-        position: fixed !important; /* sticky보다 확실한 고정 */
-        top: 0;
-        left: 0;
-        width: 100%;
         height: 70px;
-        z-index: 2000; /* GNB보다 높거나 같게 설정 */
-        background-color: #1a375f; /* 배경색 확실히 지정 */
     }
 
     .nav-container {
         height: 70px;
         padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
     /* 모바일 버튼 보이기 */
     .mobile-menu-btn {
+        position: absolute !important;
+
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 25px;
         height: 18px;
         cursor: pointer;
-        z-index: 2001;
-        margin-left: 15px;
+        z-index: 1001;
+        margin-left: 230px;
     }
+
+    .mobile-menu-btn.active {
+    position: fixed !important; /* 화면에 박제되어 따라옴 */
+}
 
     .mobile-menu-btn span {
         display: block;
@@ -625,14 +621,17 @@ footer {
 
     /* 모바일 GNB */
     .gnb {
-        position: fixed;
+        display: flex !important;
+
+
+        position: fixed ;
         top: 0;
         right: -100%;
-        width: 70%;
+        width: 70% !important;
         height: 100vh;
         background: #1a375f;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column !important;
+        align-items: flex-start !important;
         padding: 100px 30px 40px;
         /* 위쪽 여백 확보 */
         transition: 0.4s ease-in-out;
@@ -644,7 +643,7 @@ footer {
     }
 
     .menu-item {
-        width: 100%;
+        width: 100% !important;
         padding: 0;
         text-align: left;
     }
