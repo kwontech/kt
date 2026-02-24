@@ -570,14 +570,22 @@ footer {
         padding: 0;
     }
 
-
     header {
+        position: fixed !important; /* sticky보다 확실한 고정 */
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 70px;
+        z-index: 2000; /* GNB보다 높거나 같게 설정 */
+        background-color: #1a375f; /* 배경색 확실히 지정 */
     }
 
     .nav-container {
         height: 70px;
         padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     /* 모바일 버튼 보이기 */
@@ -589,9 +597,7 @@ footer {
         height: 18px;
         cursor: pointer;
         z-index: 1001;
-        margin-left: 230px;
-        /* 스크롤 내려도 우측 상단에 고정 */
-        position: fixed;  
+        margin-left: 20px;
     }
 
     .mobile-menu-btn span {
