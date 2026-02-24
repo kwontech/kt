@@ -557,10 +557,7 @@ footer {
         margin-left: 230px;
     }
 
-    .mobile-menu-btn.active {
-        position: fixed !important;
-        /* 화면에 박제되어 따라옴 */
-    }
+
 
     /* 삼지창 */
     .mobile-menu-btn span {
