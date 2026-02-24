@@ -1,0 +1,229 @@
+/* ==========================================
+   CONTACT PAGE LAYOUT (문의하기 레이아웃)
+   ========================================== */
+
+/* 전체 배경 및 여백 설정 */
+.ct-main-container {
+    padding: 60px 0 100px 0;
+    background-color: #fcfcfc;
+    /* 아주 연한 회색 배경으로 폼 카드를 강조 */
+}
+
+/* 폼과 정보를 2단으로 나누는 그리드 시스템 */
+.ct-page-wrapper {
+    display: grid;
+    /* 왼쪽(폼)을 오른쪽(정보)보다 약간 더 넓게 설정 ( 1.1 : 1 비율 )*/
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    /* 카드 사이의 간격 */
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   LEFT SIDE: INQUIRY FORM (왼쪽 문의 양식)
+   ========================================== */
+.ct-form-card {
+    background: #fff;
+    padding: 28px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    /* 부드러운 그림자 효과 */
+}
+
+.ct-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: #111;
+}
+
+/* 입력 그룹 스타일 (라벨 + 인풋) */
+.ct-input-group {
+    margin-bottom: 18px;
+}
+
+.ct-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.ct-input-group input,
+.ct-input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.ct-input-group textarea {
+    height: 120px;
+    resize: none;
+    /* 사용자가 임의로 크기 조절하지 못하게 고정 */
+}
+
+/* 개인정보 동의 문구 */
+.ct-form-notice {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 20px 0;
+    line-height: 1.4;
+}
+
+/* 제출 버튼 */
+.ct-submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #1d3658;
+    /* 기업 고유 컬러(남색) 사용 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   RIGHT SIDE: CONTACT INFO (오른쪽 연락처 & 지도)
+   ========================================== */
+.ct-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* 정보 카드들 사이의 세로 간격 */
+}
+
+.ct-info-card {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.ct-info-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+/* 아이콘과 텍스트가 나란히 배치되는 구조 */
+.ct-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+
+/* 아이콘 박스 (하늘색 배경의 작은 사각형) */
+.ct-icon-box {
+    width: 42px;
+    height: 42px;
+    background: #eff3f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    flex-shrink: 0;
+    /* 텍스트가 길어져도 아이콘 크기 고정 */
+    font-size: 1.1rem;
+}
+
+.ct-text-box strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.ct-text-box p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 지도(카카오맵) 컨테이너 */
+.ct-map-box {
+    width: 100%;
+    height: 285px;
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    /* 지도가 둥근 테두리 밖으로 나가지 않게 함 */
+    border: 1px solid #e2e8f0;
+}
+
+/* 수원지사 전용(중앙 정렬을 위해 플렉스 박스 추가)*/
+.ct-suwon-card {
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+}
+
+.ct-suwon-card .ct-info-item {
+    margin-bottom: 0;
+}
+
+.ct-map-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    /* 1. 전체 컨테이너 여백 조정 */
+    .ct-main-container {
+        padding: 40px 0 80px 0 !important;
+    }
+
+    /* 2. 2단 그리드를 1단 세로 배치로 변경 (가로폭 90%) */
+    .ct-page-wrapper {
+        grid-template-columns: 1fr !important; /* 1단으로 변경 */
+        width: 90% !important; /* 가로폭 통일 */
+        margin: 0 auto !important;
+        gap: 25px !important;
+    }
+
+    /* 3. 왼쪽 문의 양식 카드 내부 여백 조정 */
+    .ct-form-card {
+        padding: 25px 20px !important; /* 모바일은 내부 여백을 살짝 줄여서 공간 확보 */
+    }
+
+    .ct-card-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 4. 입력창 크기 및 가독성 최적화 */
+    .ct-input-group label {
+        font-size: 0.9rem !important;
+    }
+
+    .ct-input-group input, 
+    .ct-input-group textarea {
+        font-size: 16px !important; /* 모바일 인풋 포커스 시 화면 확대 방지 */
+        padding: 10px !important;
+    }
+
+    /* 5. 오른쪽 정보 영역 카드 스타일 조정 */
+    .ct-info-card {
+        padding: 20px !important;
+    }
+
+    .ct-info-item {
+        gap: 15px !important; /* 아이콘과 텍스트 사이 간격 좁힘 */
+    }
+
+    .ct-text-box p {
+        font-size: 0.85rem !important; /* 긴 주소가 잘리지 않게 조정 */
+    }
+
+    /* 6. 카카오맵 이미지 반응형 대응 */
+    .ct-map-box {
+        height: 220px !important; /* 모바일에서는 지도를 조금 더 낮게 */
+    }
+}
