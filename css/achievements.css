@@ -22,19 +22,11 @@
 }
 
 .achieve-card {
-    background: #fff;
+
     border-radius: 12px;
     overflow: hidden;
-    /* 기본 그림자는 살려두되 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    /* 아래 transition에서 transform과 box-shadow 관련 내용을 지우거나 그대로 두셔도 됩니다 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.achieve-card:hover {
-    transform: none !important; /* 혹시 모르니 추가 */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
 
 .achieve-logo-box {
     width: 100%;
@@ -43,7 +35,6 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: #fff;
 }
 
 .achieve-logo-box img {
@@ -230,7 +221,7 @@
     /* 2. 프로젝트 이력 필터 버튼: 가로 스크롤 허용 및 크기 조정 */
     .history-filter {
         display: flex !important;
-       
+
         /* 버튼이 많으면 옆으로 밀어서 선택 */
         white-space: nowrap !important;
         justify-content: flex-start !important;

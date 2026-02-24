@@ -358,9 +358,6 @@
     color: #1a375f !important;
 }
 
-
-
-
 .image-box {
     width: 100%;
     background: transparent !important;
@@ -485,12 +482,12 @@
 
     .modal-gallery-side {
         width: 100% !important;
-        max-height: 250px !important; /* 이미지 영역 제한 */
+        max-height: none !important; /* 이미지 영역 제한 */
         display: block !important;
     }
 
     .modal-gallery-side .image-box img {
-        height: 250px !important;
+        height: none !important;
         object-fit: cover !important;
     }
 
@@ -500,6 +497,30 @@
         box-sizing: border-box;
     }
 
+    .modal-list li, .tech-list li {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+
+        /* 모달 하얀창 자체의 여백 */
+    .modal-content {
+        width: 92% !important; /* 화면 양옆에 여백 생성 */
+        margin: 10% auto !important; 
+        border-radius: 15px;
+    }
+
+    /* 모달 헤더 (제목 부분) */
+    .modal-header-top {
+        padding: 20px !important;
+    }
+
+    /* 모달 본문 텍스트 여백 */
+    .modal-info-side {
+        padding: 20px !important; /* 텍스트가 박스 끝에 붙지 않게 */
+    }
+
+    
     /* 5. 모달 내 텍스트 및 리스트 조정 */
     .info-section h4 {
         font-size: 16px !important;
@@ -510,10 +531,6 @@
         word-break: keep-all; /* 단어 단위 줄바꿈 */
     }
 
-    .modal-list li, .tech-list li {
-        font-size: 13px !important;
-        line-height: 1.6 !important;
-    }
 
     .wb-box {
         width: 90% !important; /* 가로폭 제한 */
@@ -535,22 +552,7 @@
         color: #888;
     }
 
-    /* 모달 하얀창 자체의 여백 */
-    .modal-content {
-        width: 92% !important; /* 화면 양옆에 여백 생성 */
-        margin: 10% auto !important; 
-        border-radius: 15px;
-    }
 
-    /* 모달 헤더 (제목 부분) */
-    .modal-header-top {
-        padding: 20px !important;
-    }
-
-    /* 모달 본문 텍스트 여백 */
-    .modal-info-side {
-        padding: 20px !important; /* 텍스트가 박스 끝에 붙지 않게 */
-    }
 
     /* 장비개요 회색 박스 여백 */
     .desc-text {
