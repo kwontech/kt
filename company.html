@@ -100,6 +100,7 @@
         <div class="container nav-container">
             <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
 
+
             <div class="mobile-menu-btn">
                 <span></span>
                 <span></span>
@@ -108,6 +109,10 @@
 
             <nav>
                 <ul class="gnb">
+                    <li class="close-menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+
                     <li class="menu-item has-sub">
                         <a href="company.html">회사소개</a>
                         <ul class="submenu">
@@ -672,86 +677,62 @@
         <div class="copyright">© KWONTECH Co., Ltd. All Rights Reserved.</div>
     </footer>
 
-    <script>
-        function openTab(evt, tabName) {
-            // 1. 모든 탭 콘텐츠 숨김
-            const contents = document.getElementsByClassName("tab-content");
-            for (let content of contents) {
-                content.style.display = "none";
-                content.classList.remove("active");
-            }
 
-            // 2. 모든 버튼의 활성화(active) 클래스 제거
-            const btns = document.getElementsByClassName("tab-btn");
-            for (let btn of btns) {
-                btn.classList.remove("active");
-            }
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-            // 3. 선택된 탭만 보여주고 버튼 활성화
-            const target = document.getElementById(tabName);
-            if (target) {
-                target.style.display = "block";
-                target.classList.add("active");
-            }
-
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.classList.add("active");
-            }
+<script>
+    // 탭 열기 함수 (누락된 경우 추가 필수)
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
         }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
 
-        // 페이지 로드 시 실행(URL 의 ?tab=N 파라티머 처리)
-        // DOMContentLoaded는 이미지/스타일시트 로딩을 기다리지 않고 태그만 완성되면 바로 실행됩니다.
-        document.addEventListener('DOMContentLoaded', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const tabParam = urlParams.get('tab');
-            const tabBtns = document.querySelectorAll(".tab-btn");
-
-            if (tabParam && tabBtns[tabParam - 1]) {
-                // 외부(메인페이지 등)에서 넘어온 탭 번호가 있으면 해당 탭 클릭 실행
-                // 파라미터가 있으면 해당 탭 클릭
-                tabBtns[tabParam - 1].click();
-            } else {
-                // 파라미터가 없으면(그냥 접속 시) 첫 번째 탭(인사말) 강제 클릭
-                // 기본값 : 첫 번째 탭 열기
-                if (tabBtns[0]) tabBtns[0].click();
-            }
-        });
-
-        // 2. 모바일 햄버거 메뉴 열기/닫기
+    document.addEventListener('DOMContentLoaded', function () {
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const gnb = document.querySelector('.gnb');
+        const closeBtn = document.querySelector('.close-menu');
 
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            gnb.classList.toggle('active');
-        });
+        // 메뉴 열기/닫기
+        if (menuBtn && gnb) {
+            menuBtn.addEventListener('click', () => gnb.classList.add('active'));
+        }
+        if (closeBtn && gnb) {
+            closeBtn.addEventListener('click', () => gnb.classList.remove('active'));
+        }
 
-        // 3. 모바일 서브메뉴 아코디언 (Open/Close 토글)
+        // [수정 핵심] 모바일 서브메뉴 아코디언 로직
         const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
-
         menuItemsWithSub.forEach(item => {
             const mainLink = item.querySelector('a');
-            
-            mainLink.addEventListener('click', function(e) {
+            mainLink.addEventListener('click', function (e) {
                 if (window.innerWidth <= 768) {
+                    // a 태그에 실제 이동할 링크가 `#`이 아니거나 서브메뉴를 열어야 하는 경우
                     e.preventDefault(); 
-                    e.stopPropagation(); // 이벤트 전파 방지 (버그 방지)
-                    
-                    const isOpen = item.classList.contains('open');
-                    
-                    // 핵심: 열려있으면 닫고, 닫혀있으면 연다
-                    if (isOpen) {
-                        item.classList.remove('open');
-                    } else {
-                        // 다른 메뉴 클릭 시 기존 열린 메뉴 닫고 싶으면 아래 주석 해제
-                        // menuItemsWithSub.forEach(el => el.classList.remove('open'));
-                        item.classList.add('open');
-                    }
+                    item.classList.toggle('open');
                 }
             });
         });
-    
-    </script>
+
+        // URL 파라미터에 따라 특정 탭 열기 (예: company.html?tab=2)
+        const urlParams = new URLSearchParams(window.location.search);
+        const tabParam = urlParams.get('tab');
+        if (tabParam) {
+            const targetBtn = document.querySelectorAll('.tab-btn')[tabParam - 1];
+            if (targetBtn) targetBtn.click();
+        }
+    });
+</script>
 </body>
 
 </html>

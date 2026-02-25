@@ -24,7 +24,7 @@
 
     <meta name="google-site-verification" content="1e9QCZiJOIeOCgviSecI2u1Qaxh9B46h9H0RgL5f9Bg" />
 
-    
+
     <script>
         var swiper = new Swiper(".mySwiper", {
             loop: true,  // 슬라이드 무한 반복
@@ -61,6 +61,7 @@
         <div class="container nav-container">
             <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
 
+
             <div class="mobile-menu-btn">
                 <span></span>
                 <span></span>
@@ -69,6 +70,10 @@
 
             <nav>
                 <ul class="gnb">
+                    <li class="close-menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+
                     <li class="menu-item has-sub">
                         <a href="company.html">회사소개</a>
                         <ul class="submenu">
@@ -241,12 +246,12 @@
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. 슬라이더 실행
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // 1. 슬라이더 실행 (기존 로직 유지)
             var swiper = new Swiper(".mySwiper", {
                 loop: true,
                 speed: 2000,
@@ -260,32 +265,33 @@
                 },
             });
 
-            // 슬라이더 멈춤/시작
-            const swiperContainer = document.querySelector('.mySwiper');
-            if(swiperContainer) {
-                swiperContainer.addEventListener('mouseenter', () => swiper.autoplay.stop());
-                swiperContainer.addEventListener('mouseleave', () => swiper.autoplay.start());
-            }
-
-            // 2. 모바일 삼지창 버튼 제어
+            // 2. 변수 선언 (딱 한 번만 선언)
             const menuBtn = document.querySelector('.mobile-menu-btn');
             const gnb = document.querySelector('.gnb');
+            const closeBtn = document.querySelector('.close-menu');
 
+            // 3. 삼지창 누르면 메뉴 열기
             if (menuBtn && gnb) {
-                menuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation(); // 클릭 이벤트 전파 방지
-                    menuBtn.classList.toggle('active');
-                    gnb.classList.toggle('active');
+                menuBtn.addEventListener('click', function () {
+                    gnb.classList.add('active');
                 });
             }
 
-            // 3. 모바일 서브메뉴 아코디언
+            // 4. 메뉴 안의 X 버튼 누르면 메뉴 닫기
+            if (closeBtn && gnb) {
+                closeBtn.addEventListener('click', function () {
+                    gnb.classList.remove('active');
+                });
+            }
+
+            // 5. 모바일 서브메뉴 아코디언 (기존 로직 유지)
             const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
             menuItemsWithSub.forEach(item => {
                 const mainLink = item.querySelector('a');
-                mainLink.addEventListener('click', function(e) {
+                mainLink.addEventListener('click', function (e) {
                     if (window.innerWidth <= 768) {
-                        e.preventDefault(); 
+                        // 서브메뉴가 있는 경우에만 페이지 이동을 막고 아코디언 작동
+                        e.preventDefault();
                         item.classList.toggle('open');
                     }
                 });
