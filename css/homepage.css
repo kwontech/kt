@@ -499,10 +499,10 @@ footer {
 }
 
 
-/* 기본적으로 모바일 버튼 숨김 (삼지창) */
 .mobile-menu-btn {
-    display: none;
+    display: none !important;
 }
+
 
 
 
@@ -546,7 +546,7 @@ footer {
     /* 모바일 버튼 보이기 */
     .mobile-menu-btn {
         position: absolute;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 25px;
@@ -598,37 +598,23 @@ footer {
         right: 0;
     }
 
-    /* 메뉴판 내부의 X 버튼 스타일 */
+    /* 기본적으로는 숨김 (메뉴 안 열렸을 때) */
     .close-menu {
-        position: absolute;
-        /* 자유로운 배치 */
-        top: 8px;
-        /* [조정] 숫자가 작을수록 위로 올라감 (기존 20px에서 수정 가능) */
-        right: 15px;
-        /* [조정] 숫자가 작을수록 오른쪽으로 붙음 (기존 padding 대신 사용) */
-        width: auto;
-        /* 가로를 다 차지하지 않도록 설정 */
-        height: auto;
-        padding: 10px;
-        /* 실제 클릭 범위를 적당히 확보 (너무 작으면 누르기 힘듦) */
-        cursor: pointer;
-        z-index: 1001;
-        /* 메뉴 안에서도 가장 위로 */
-        display: block !important;
-        /* flex 해제 */
+        display: none;
     }
 
-    .close-menu i {
-        color: #fff;
-        font-size: 28px;
-        /* 크기가 너무 크면 살짝 줄여도 예쁩니다 */
-        display: block;
-        line-height: 1;
-        /* 불필요한 행간 제거 */
-        
-        /* 폰트 두께를 가장 얇게 */
-        -webkit-text-stroke: 1px #1a375f;
-        /* 배경색과 같은 색으로 테두리를 줘서 깎아내는 효과 */
+    /* 햄버거 메뉴가 열렸을 때(.active)만 최우선으로 부활 */
+    .gnb.active .close-menu {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;  /* 일부러 크게 잡아서 대충 눌러도 닫히게 합니다 */
+        height: 100px;
+        z-index: 10001;
+        background: transparent; /* 투명 */
+        cursor: pointer;
+        opacity: 0; /* 완전히 투명하게 */
     }
 
     .menu-item {
