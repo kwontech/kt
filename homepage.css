@@ -504,7 +504,8 @@ footer {
 }
 
 
-.close-menu {
+.close-menu,
+.fa-xmark {
     display: none !important;
 }
 
