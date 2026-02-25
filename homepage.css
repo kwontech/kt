@@ -546,7 +546,7 @@ footer {
     /* 모바일 버튼 보이기 */
     .mobile-menu-btn {
         position: absolute;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: space-between;
         width: 25px;
@@ -598,6 +598,13 @@ footer {
         right: 0;
     }
 
+    .gnb.active .close-menu {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
     /* 메뉴판 내부의 X 버튼 스타일 */
     .close-menu {
         position: absolute;
