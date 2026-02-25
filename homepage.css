@@ -609,8 +609,8 @@ footer {
         position: absolute;
         top: 0;
         right: 0;
-        width: 80px;  /* 일부러 크게 잡아서 대충 눌러도 닫히게 합니다 */
-        height: 80px;
+        width: 100px;  /* 일부러 크게 잡아서 대충 눌러도 닫히게 합니다 */
+        height: 100px;
         z-index: 10001;
         background: transparent; /* 투명 */
         cursor: pointer;
