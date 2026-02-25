@@ -504,14 +504,6 @@ footer {
 }
 
 
-/* 1. PC 버전 (769px 이상) : 여기서는 아예 소멸 */
-@media (min-width: 769px) {
-    .close-menu, 
-    .close-menu i, 
-    .fa-xmark {
-        display: none !important;
-    }
-}
 
 
 /**/
@@ -613,27 +605,16 @@ footer {
 
     /* 햄버거 메뉴가 열렸을 때(.active)만 최우선으로 부활 */
     .gnb.active .close-menu {
-        display: flex !important; 
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: absolute !important;
-        top: 20px !important;
-        right: 20px !important;
-        width: 44px !important;
-        height: 44px !important;
-        z-index: 10001 !important;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    /* X 아이콘(흰색) 강제 노출 */
-    .gnb.active .close-menu i {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        color: #ffffff !important;
-        font-size: 30px !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;  /* 일부러 크게 잡아서 대충 눌러도 닫히게 합니다 */
+        height: 80px;
+        z-index: 10001;
+        background: transparent; /* 투명 */
+        cursor: pointer;
+        opacity: 0; /* 완전히 투명하게 */
     }
 
     .menu-item {
