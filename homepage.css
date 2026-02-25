@@ -504,7 +504,8 @@ footer {
 }
 
 
-.close-menu,
+.close-menu, 
+.close-menu i, 
 .fa-xmark {
     display: none !important;
 }
@@ -611,7 +612,7 @@ footer {
     .close-menu {
         position: absolute;
         top: 15px;
-        right: 13px !important;
+        right: 18px !important;
         left: auto !important;
         width: 30px;
         /* 크기를 44 -> 30으로 줄여서 불필요한 여백 제거 */
@@ -632,14 +633,7 @@ footer {
         font-size: 24px !important;
         /* 사각형보다 살짝 작게 설정해서 여백 확보 */
         line-height: 1 !important;
-        /* 줄간격 때문에 아래로 밀리는 현상 방지 */
-        display: block !important;
-        margin: 0 !important;
-        padding: 0 !important;
 
-
-        /* 테두리(stroke)는 당연히 0이어야 합니다 */
-        -webkit-text-stroke: 0 !important;
     }
 
     .menu-item {

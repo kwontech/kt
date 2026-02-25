@@ -266,23 +266,19 @@
             });
 
             // 2. 변수 선언 (딱 한 번만 선언)
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const gnb = document.querySelector('.gnb');
-            const closeBtn = document.querySelector('.close-menu');
+            const menuBtn = document.querySelector('.mobile-menu-btn'); // 삼지창
+const closeBtn = document.querySelector('.close-menu');     // 엑스
+const gnb = document.querySelector('.gnb');                 // 메뉴판
 
-            // 3. 삼지창 누르면 메뉴 열기
-            if (menuBtn && gnb) {
-                menuBtn.addEventListener('click', function () {
-                    gnb.classList.add('active');
-                });
-            }
+// 삼지창 누르면 열기
+menuBtn.addEventListener('click', () => {
+    gnb.classList.add('active');
+});
 
-            // 4. 메뉴 안의 X 버튼 누르면 메뉴 닫기
-            if (closeBtn && gnb) {
-                closeBtn.addEventListener('click', function () {
-                    gnb.classList.remove('active');
-                });
-            }
+// 엑스 누르면 닫기
+closeBtn.addEventListener('click', () => {
+    gnb.classList.remove('active');
+});
 
             // 5. 모바일 서브메뉴 아코디언 (기존 로직 유지)
             const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
