@@ -602,12 +602,9 @@ footer {
         right: 0;
     }
 
-    .gnb.active .close-menu {
-        display: block !important;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
+    .gnb.active .close-menu,
+    .gnb.active .fa-xmark {
+        display: flex !important; /* 또는 block */
     }
 
     /* 메뉴판 내부의 X 버튼 스타일 */
