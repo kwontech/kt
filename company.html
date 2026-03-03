@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>케이원 텍 | 회사소개</title>
+    <link rel="canonical" href="https://www.kwontech.com/company.html">
 
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/company.css">
@@ -98,7 +99,7 @@
 
     <header>
         <div class="container nav-container">
-            <h1 class="logo"><a href="index.html"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
+            <h1 class="logo"><a href="/"><img src="./logo/logo.png" alt="케이원 텍"></a></h1>
 
 
             <div class="mobile-menu-btn">
@@ -681,59 +682,59 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script>
-    // 탭 열기 함수 (누락된 경우 추가 필수)
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-            tabcontent[i].classList.remove("active");
-        }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-        document.getElementById(tabName).style.display = "block";
-        document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.classList.add("active");
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const gnb = document.querySelector('.gnb');
-        const closeBtn = document.querySelector('.close-menu');
-
-        // 메뉴 열기/닫기
-        if (menuBtn && gnb) {
-            menuBtn.addEventListener('click', () => gnb.classList.add('active'));
-        }
-        if (closeBtn && gnb) {
-            closeBtn.addEventListener('click', () => gnb.classList.remove('active'));
+    <script>
+        // 탭 열기 함수 (누락된 경우 추가 필수)
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
 
-        // [수정 핵심] 모바일 서브메뉴 아코디언 로직
-        const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
-        menuItemsWithSub.forEach(item => {
-            const mainLink = item.querySelector('a');
-            mainLink.addEventListener('click', function (e) {
-                if (window.innerWidth <= 768) {
-                    // a 태그에 실제 이동할 링크가 `#`이 아니거나 서브메뉴를 열어야 하는 경우
-                    e.preventDefault(); 
-                    item.classList.toggle('open');
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const gnb = document.querySelector('.gnb');
+            const closeBtn = document.querySelector('.close-menu');
+
+            // 메뉴 열기/닫기
+            if (menuBtn && gnb) {
+                menuBtn.addEventListener('click', () => gnb.classList.add('active'));
+            }
+            if (closeBtn && gnb) {
+                closeBtn.addEventListener('click', () => gnb.classList.remove('active'));
+            }
+
+            // [수정 핵심] 모바일 서브메뉴 아코디언 로직
+            const menuItemsWithSub = document.querySelectorAll('.menu-item.has-sub');
+            menuItemsWithSub.forEach(item => {
+                const mainLink = item.querySelector('a');
+                mainLink.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 768) {
+                        // a 태그에 실제 이동할 링크가 `#`이 아니거나 서브메뉴를 열어야 하는 경우
+                        e.preventDefault();
+                        item.classList.toggle('open');
+                    }
+                });
             });
-        });
 
-        // URL 파라미터에 따라 특정 탭 열기 (예: company.html?tab=2)
-        const urlParams = new URLSearchParams(window.location.search);
-        const tabParam = urlParams.get('tab');
-        if (tabParam) {
-            const targetBtn = document.querySelectorAll('.tab-btn')[tabParam - 1];
-            if (targetBtn) targetBtn.click();
-        }
-    });
-</script>
+            // URL 파라미터에 따라 특정 탭 열기 (예: company.html?tab=2)
+            const urlParams = new URLSearchParams(window.location.search);
+            const tabParam = urlParams.get('tab');
+            if (tabParam) {
+                const targetBtn = document.querySelectorAll('.tab-btn')[tabParam - 1];
+                if (targetBtn) targetBtn.click();
+            }
+        });
+    </script>
 </body>
 
 </html>
