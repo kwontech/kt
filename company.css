@@ -616,7 +616,7 @@
 
     /* 인사말 */
     .greeting-content {
-        flex-direction: column !important; /* 위아래 배치 */
+        flex-direction: column !important;
         gap: 30px !important;
     }
 
@@ -634,21 +634,23 @@
     }
 
     .greeting-image-long {
-        order: -1 !important;    /* 이미지를 본문 위로 올림 */
-        flex: none !important;   /* 고정폭 해제 */
-        width: 90% !important;   /* 화면의 90%만 차지 (여백 생성) */
-        height: auto !important; /* 높이는 이미지 비율에 맞춤 */
-        margin: 0 auto !important; /* 가운데 정렬 */
+        order: -1;
+        width: 85%;
+        margin: 0 auto 25px auto !important;
+        min-height: auto !important;
+        height: 220px;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     .greeting-image-long img {
-        width: 100% !important;  /* 박스 너비에 맞게 꽉 채움 */
-        height: auto !important; /* 세로 길이를 비율대로 자동 조절 */
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
     }
 
     .greeting-text {
-        order: 1 !important;
-        text-align: center !important; /* 모바일은 중앙 정렬이 깔끔함 */
+        padding: 0 20px;
     }
 
     .greeting-text h2 {

@@ -70,24 +70,23 @@
             /* 성함은 명조체 계열이 신뢰감을 줍니다 */
         }
 
+        /* 오른쪽 이미지 영역 (남색 박스 완전 제거 버전) */
 .greeting-image-long {
-    flex: 0 0 500px !important; /* PC에서 가로 500px 자리 고정 */
-    width: 500px !important;
-    height: 550px !important;   /* 세로 550px 고정 */
-    
-    background: transparent !important;
+    flex: 1;
+    background: transparent !important; /* 남색(#1a375f) 삭제하고 투명하게 */
+    min-height: auto !important;        /* 450px 강제 설정 해제 */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 10px;               /* 4px보다 10px이 더 부드러워요 */
     overflow: hidden;
 }
 
 .greeting-image-long img {
-    width: 500px !important;   /* 이미지도 박스 크기에 딱 맞춤 */
-    height: 550px !important;
-    object-fit: cover !important; /* 찌그러짐 방지 */
-    object-position: 53.5% center;
+    width: 100% !important;
+    height: auto !important;            /* 550px 고정을 풀어야 비율이 안 깨짐 */
+    display: block;
+    object-fit: contain !important;     /* 이미지가 박스에 딱 맞게 (배경 안 보이게) */
 }
     </style>
 </head>
@@ -181,7 +180,7 @@
                     <div class="greeting-body">
                         <h2
                             style="font-size: 34px; color: #1a375f; margin-bottom: 35px; line-height: 1.4; font-weight: 800;">
-                            케이원 텍을 찾아주신 <br>고객 여러분, 반갑습니다.
+                            고객과 함께 혁신적인 미래를 열어가는 <br>케이원 텍입니다.
                         </h2>
                         <p style="line-height: 1.9; color: #444; margin-bottom: 25px; font-size: 17px;">
                             고객과 함께 혁신적인 미래를 열어가는 케이원 텍입니다.
