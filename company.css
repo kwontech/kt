@@ -633,6 +633,22 @@
         margin: 0 27px 25px !important;
     }
 
+    .greeting-image-long {
+        order: -1;
+        width: 85%;
+        margin: 0 auto 25px auto !important;
+        min-height: auto !important;
+        height: 100% !important;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .greeting-image-long img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
     .greeting-text {
         padding: 0 20px;
     }
