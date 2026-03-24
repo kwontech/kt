@@ -656,17 +656,17 @@
     .greeting-text h2 {
         font-size: 22px !important;
         word-break: keep-all;
-        text-align: center;
+        text-align: left;
     }
 
     .greeting-text p {
         font-size: 15px !important;
         word-break: keep-all;
-        text-align: center;
+        text-align: left;
     }
 
     .ceo-sign-left {
-        text-align: center !important;
+        text-align: left !important;
         margin-top: 30px;
     }
 
